@@ -1,23 +1,21 @@
 import { makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
-export default function Section(props) {
-    const {title, content} = props;
-    const useStyles = makeStyles({
-        root: {},
-        title: {
-            backgroundColor: "#307672",
-            backgroundImage: `url("https://www.transparenttextures.com/patterns/cubes.png")`,
-        },
-        titleText: {
-            color: '#e4eddb'
-        }
-    });
-    const classes = useStyles();
+import React, { forwardRef} from 'react';
+import {useIsVisible} from './useIsVisible';
+
+const Section = (props, ref) => {
+    const {name, content} = props;
+    const onScreen = useIsVisible({element: ref});
+    
+    // if (onScreen) {
+    //     props.onScreen(name);
+    // }
+    
+    const classes = useStyles();    
     return (
-        <div>
-            <div className={classes.title}>
-                <Typography className={classes.titleText} variant="h2">
-                    {title}
+        <div ref={ref} >
+            <div className={classes.name}>
+                <Typography className={classes.nameText} variant="h2">
+                    {name}
                 </Typography>
             </div>
             <div>
@@ -26,3 +24,20 @@ export default function Section(props) {
         </div>
     )
 }
+
+
+const useStyles = makeStyles({
+    root: {},
+    name: {
+        backgroundColor: "#e4eddb",
+        backgroundImage: `url("https://www.transparenttextures.com/patterns/tileable-wood.png")`,
+        padding: '2% 0% 2% 0%'
+    },
+    nameText: {
+        color: '#1a3c40',
+        fontFamily: 'Berkshire Swash, cursive',
+        margin: '0% 3%'
+    }
+});
+
+export default forwardRef(Section);
