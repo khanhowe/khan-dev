@@ -12,7 +12,8 @@ import Contact from './Contact';
 import Section from './Section';
 import SideBar from './SideBar';
 import Footer from './Footer';
-import { useScrollPercentage } from 'react-scroll-percentage'
+import { useScrollPercentage } from 'react-scroll-percentage';
+import useWindowSize from '../useWindowSize.js';
 
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
@@ -24,8 +25,8 @@ function App() {
     component: "Home"
   });
 
-  
-
+  const size = useWindowSize();
+  const mobile = size.width <= 1000;
   const handleFocus = (newFocus) => {
     setFocus(newFocus);
   }
@@ -43,12 +44,15 @@ function App() {
     <Router>
       <Route exact path="/">
         <Grid container >
+        {!mobile &&
           <Hidden smDown>
             <Grid item lg={2} md={2} sm={false} xs={false}>
               <SideBar focus={focus} onClick={handleClick}/>
             </Grid>
           </Hidden>
-          <Grid item lg={10} md={10} sm={12} xs={12}>
+        }
+          <Grid item lg={mobile ? 12 : 10} md={mobile ? 12 : 10} sm={12} xs={12}>
+
             <MainPage getFocus={handleFocus} clickedComponent={clickedComponent}/>
           </Grid>
         </Grid>
@@ -100,13 +104,13 @@ function MainPage(props) {
       percentage: skillsPercentage,
       content: <Skills skillSections={content.skillSections}/>
     },
-    {
-      name: "Projects",
-      ref: projectsRef,
-      clickRef: useRef(),
-      percentage: projectsPercentage,
-      content: <Projects/>
-    },
+    // {
+    //   name: "Projects",
+    //   ref: projectsRef,
+    //   clickRef: useRef(),
+    //   percentage: projectsPercentage,
+    //   content: <Projects/>
+    // },
     {
       name: "Education",
       ref: educationRef,

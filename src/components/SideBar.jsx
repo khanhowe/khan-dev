@@ -13,7 +13,7 @@ const buttonList = [
     { name: "About", icon: <PersonIcon/> },
     { name: "Experience", icon: <WorkIcon/> },
     { name: "Skills", icon: <ComputerIcon/> },
-    { name: "Projects", icon: <BuildIcon/> },
+    // { name: "Projects", icon: <BuildIcon/> },
     { name: "Education", icon: <SchoolIcon/> },
     { name: "Contact", icon: <ContactSupportIcon/> },  
 ];

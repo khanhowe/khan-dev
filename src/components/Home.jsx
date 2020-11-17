@@ -33,7 +33,7 @@ function ProfilePicture(props) {
     root: {
       backgroundColor: "#e4eddb",
       borderRadius: "50%",
-      margin: "4% auto",
+      margin: "4% auto 10% auto",
       padding: "0.5% 0.5%",
       width: "40vh",
       height: "40vh",

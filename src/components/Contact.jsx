@@ -11,13 +11,13 @@ export default function Contact(props) {
     return (
         <div className={classes.root}>
             <Grid container className={classes.contactsContainer}>
-                <Grid item lg={4} md={4} sm={12} xs={12}>
-                    <LinkedInTag name="Khan Howe" emailImg='https://media-exp1.licdn.com/dms/image/C5635AQHLIWj5O9srJw/profile-framedphoto-shrink_400_400/0?e=1603828800&v=beta&t=LTCYQFOQwyxE5MApeIb12m-68EXHke6VvnjoIWTt9qc'/>
+                <Grid item lg={4} md={12} sm={12} xs={12}>
+                    <LinkedInTag name="Khan Howe" emailImg='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoivTndKzfti6J32wwJPwH3YAt0fKZEI2y3Q&usqp=CAU'/>
                 </Grid>
-                <Grid item lg={4} md={4} sm={12} xs={12}>
+                <Grid item lg={4} md={12} sm={12} xs={12}>
                     <EmailTag email="khanhowe@gmail.com" name="Khan Howe" emailImg='https://cdn.theorg.com/29782cad-beff-47bc-a560-3f5d07b0872e_small.jpg'/>
                 </Grid>
-                <Grid item lg={4} md={4} sm={12} xs={12}>
+                <Grid item lg={4} md={12} sm={12} xs={12}>
                     <GitHubTag avatar="https://avatars3.githubusercontent.com/u/12534401?s=460&v=4"/>
                 </Grid>
 

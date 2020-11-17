@@ -2,6 +2,7 @@ import React from 'react';
 import {Grid, makeStyles,Card, CardActions} from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
+
 export default function ExperienceCard(props) {
     const {
         experience: {
@@ -19,11 +20,11 @@ export default function ExperienceCard(props) {
     return (
         <Card elevation={3} className={classes.root}>
             <Grid container className={classes.header}>
-                <Grid item xs={3}>
+                <Grid item xs={4}>
                     <WorkIcon imageSrc={imageSrc}/>
                 </Grid>
 
-                <Grid item xs={9}>
+                <Grid item xs={8}>
                     <WorkTitle title={title} position={position} />
                 </Grid>
             </Grid>
@@ -120,7 +121,9 @@ const useStyles = makeStyles({
         textShadow: '2px 2px black'
     },
     logo: {
-        margin: '5% auto',
+        position: 'relative',
+        top: '50%',
+        transform: 'translateY(-50%)',
         textAlign: 'center'
     },
     listItem: {
@@ -130,7 +133,7 @@ const useStyles = makeStyles({
         padding: '0% 10%'
     },
     descriptionText: {
-        fontSize: '1.3rem',
+        fontSize: '1.5rem',
         lineHeight: 1.8
     },
     footer: {

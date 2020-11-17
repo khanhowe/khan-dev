@@ -41,10 +41,10 @@ function EducationCard(props) {
                 <Grid container>
 
                 
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                         <EducationIcon imageSrc={imageSrc}/>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item xs={8}>
                         <EducationTitle title={title} certification={certification}/>
                     </Grid>
                 </Grid>
@@ -125,8 +125,11 @@ const useStyles = makeStyles({
         padding: '2% 4%'
     },
     logo: {
-        margin: '5% auto',
-        textAlign: 'center'
+        // margin: '5% auto',
+        textAlign: 'center',
+        position: 'relative',
+        top: '50%',
+        transform: 'translateY(-50%)'
     },
     title: {
         margin: '0% 0% 0% 2%',
@@ -140,7 +143,7 @@ const useStyles = makeStyles({
         // color: '#e4eddb'
     },
     descriptionText: {
-        fontSize: '1.3rem',
+        fontSize: '1.5rem',
         lineHeight: 1.8
     },
 

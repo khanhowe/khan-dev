@@ -9,7 +9,9 @@ export default function About(props) {
         <Card elevation={3} className={classes.root}>
             <Grid container>
                 <Grid item lg={6} md={6} sm={12} xs={12} style={{textAlign: 'center'}}>
-                    <img src='../../icons/computer.png' alt='about-img' style={{width: '65%'}}/>
+                    <img src='../../icons/computer.png' alt='about-img' style={{width: '80%', position: 'relative',
+        top: '50%',
+        transform: 'translateY(-50%)'}}/>
                 </Grid>
                 <Grid item lg={6} md={6} sm={12} xs={12}>
                     <AboutText text={about.intro} className={classes.aboutText}/>    
@@ -44,14 +46,11 @@ function CurrentFocus(props) {
                 Current Focus: 
             </Typography>
             <Typography variant="h5">
-                <Link variant="h5" to="" className={classes.focusLink}>
+                <Link variant="h5" href='https://reactjs.org/' className={classes.focusLink}>
                     React
                 </Link>/
-                <Link variant="h5" to="" className={classes.focusLink}>
+                <Link variant="h5" href='https://www.w3schools.com/html/html_responsive.asp' className={classes.focusLink}>
                     Responsive Design
-                </Link>/
-                <Link variant="h5" to="" className={classes.focusLink}>
-                    API Design
                 </Link>
             </Typography>
 
@@ -67,8 +66,8 @@ const useStyles = makeStyles({
     },
     aboutText: {
         // textAlign: 'center',
-        fontSize: '1.7rem',
-        lineHeight: '2.2rem',
+        fontSize: '1.9rem',
+        lineHeight: '2.5rem',
         textAlign: 'center',
         margin: '0% auto 5% auto'
     },
