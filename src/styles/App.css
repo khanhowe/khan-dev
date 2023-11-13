@@ -1,0 +1,8 @@
+.view-paper {
+    margin-top: 50px;
+}
+
+.name-title {
+    display: flex;
+    justify-content: center;
+}

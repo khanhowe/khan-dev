@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import NameTitle from './components/NameTitle';
+import './styles/Home.css';
+import { Paper, ThemeProvider } from '@mui/material';
+import Grid from '@mui/system/Unstable_Grid/Grid';
+import theme from './theme';
+import NavBar from './components/NavBar';
+import Page from './components/Page';
+import { useState } from 'react';
 
 function App() {
+  const [pageNumber, setPageNumber] = useState<number>(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Grid container spacing={2}>
+          <Grid xs={0} md={2}></Grid>
+          <Grid xs={12} md={8}>
+            <Paper elevation={3} className='view-paper'>
+              <NameTitle name='Khan Howe'/>
+              <NavBar pageNumber={pageNumber} setPageNumber={setPageNumber}/>
+              <Page PageNumber={pageNumber}/>
+            </Paper>
+          </Grid>
+          <Grid xs={0} md={2}></Grid>
+        </Grid>
+      </div>
+    </ThemeProvider>
   );
 }
 
