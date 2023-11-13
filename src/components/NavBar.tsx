@@ -1,5 +1,5 @@
 import { Tab, Tabs } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
 
@@ -13,17 +13,18 @@ const a11yProps = (index: number) => {
     };
 }
 
-const NavBar: React.FC<NavBarProps> = ({}) => {
+const NavBar: React.FC<NavBarProps> = () => {
+    const [pageSelect, setPageSelect] = useState<number>(0);
     const navigate = useNavigate();
     const routes = ['/', '/about', '/skills', '/experience', '/education', '/projects', '/contact'];
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log('Navigate to ', routes[newValue]);
+        setPageSelect(newValue);
         navigate(routes[newValue]);
     };
     return (
         <div className='navbar-div'>
-            <Tabs value={false} onChange={handleChange} className='navbar'>
+            <Tabs value={pageSelect} onChange={handleChange} className='navbar'>
                 <Tab label='Home' {...a11yProps(0)}/>
                 <Tab label='About' {...a11yProps(1)}/>
                 <Tab label='Skills' {...a11yProps(2)}/>

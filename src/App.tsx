@@ -5,7 +5,6 @@ import { Paper, ThemeProvider } from '@mui/material';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import theme from './theme';
 import NavBar from './components/NavBar';
-import { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import About from './pages/About';
 import Home from './pages/Home';
