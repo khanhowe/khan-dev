@@ -5,25 +5,32 @@ import { Paper, ThemeProvider } from '@mui/material';
 import Grid from '@mui/system/Unstable_Grid/Grid';
 import theme from './theme';
 import NavBar from './components/NavBar';
-import Page from './components/Page';
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import About from './pages/About';
+import Home from './pages/Home';
+
 
 function App() {
-  const [pageNumber, setPageNumber] = useState<number>(0);
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Grid container spacing={2}>
-          <Grid xs={0} md={2}></Grid>
-          <Grid xs={12} md={8}>
-            <Paper elevation={3} className='view-paper'>
-              <NameTitle name='Khan Howe'/>
-              <NavBar pageNumber={pageNumber} setPageNumber={setPageNumber}/>
-              <Page PageNumber={pageNumber}/>
-            </Paper>
+        <Router>
+          <Grid container spacing={2}>
+            <Grid xs={0} md={2}></Grid>
+            <Grid xs={12} md={8}>
+              <Paper elevation={3} className='view-paper'>
+                <NameTitle name='Khan Howe'/>
+                <NavBar/>
+                  <Routes>
+                    <Route path='/' element={<Home/>}/>
+                    <Route path='/About' element={<About/>}/>
+                  </Routes>
+              </Paper>
+            </Grid>
+            <Grid xs={0} md={2}></Grid>
           </Grid>
-          <Grid xs={0} md={2}></Grid>
-        </Grid>
+        </Router>
       </div>
     </ThemeProvider>
   );
