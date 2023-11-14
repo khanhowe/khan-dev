@@ -16,8 +16,8 @@ function App() {
       <div className="App">
         <Router>
           <Grid container spacing={2}>
-            <Grid xs={0} md={2}></Grid>
-            <Grid xs={12} md={8}>
+            <Grid xs={0} md={1}></Grid>
+            <Grid xs={12} md={10}>
               <Paper elevation={3} className='view-paper'>
                 <NameTitle name='Khan Howe'/>
                 <NavBar/>
@@ -27,7 +27,7 @@ function App() {
                   </Routes>
               </Paper>
             </Grid>
-            <Grid xs={0} md={2}></Grid>
+            <Grid xs={0} md={1}></Grid>
           </Grid>
         </Router>
       </div>

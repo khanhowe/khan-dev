@@ -11,7 +11,7 @@ const NameTitle: React.FC<NameTitleProps> = ({name}) => {
         <div className='name-title'>
             <Typography
                 variant='h1'
-                fontFamily='Segoe UI'
+                fontFamily='sans-serif'
             >
                 {name}
             </Typography>

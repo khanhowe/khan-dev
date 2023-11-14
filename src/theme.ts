@@ -21,7 +21,9 @@ const theme = createTheme({
             '"Apple Color Emoji"',
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
+            '"proxima-nova"'
         ].join(','),
+        fontSize: 16
     }
 });
 
