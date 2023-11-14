@@ -1,6 +1,7 @@
 .page-div {
     margin: 50px auto 50px auto;
     width: 70%;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     align-items: center;

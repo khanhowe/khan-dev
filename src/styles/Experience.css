@@ -1,0 +1,21 @@
+.card-list {
+    width: 100%;
+}
+
+.experience-div {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.experience-text-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+}
+
+.company-logo {
+    height: 100px;
+    margin: 20px;
+}

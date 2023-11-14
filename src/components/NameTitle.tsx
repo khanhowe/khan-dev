@@ -10,7 +10,7 @@ const NameTitle: React.FC<NameTitleProps> = ({name}) => {
     return (
         <div className='name-title'>
             <Typography
-                variant='h1'
+                variant='h2'
                 fontFamily='sans-serif'
             >
                 {name}
