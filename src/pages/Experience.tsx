@@ -6,7 +6,6 @@ interface ExperienceSectionProps {
     // LogoPath: string;
     // CompanyName: string;
     // JobTitle: string;
-
 }
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
@@ -19,7 +18,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
                 <Typography variant='h5'>Full-stack Engineer</Typography>
                 <Typography variant='h6'>Class Technologies Inc.</Typography>
                 <Typography>2021-2023</Typography>
-                <Typography>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah </Typography>
+                <Typography>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</Typography>
             </div>
         </div>  
     );
