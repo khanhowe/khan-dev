@@ -12,7 +12,6 @@ import Experience from './pages/Experience';
 import Eductation from './pages/Education';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
-import Contact from './pages/Contact';
 
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
                     <Route path='/experience' element={<Experience/>}/>
                     <Route path='/education' element={<Eductation/>}/>
                     <Route path='/projects' element={<Projects/>}/>
-                    <Route path='/contact' element={<Contact/>}/>
                   </Routes>
               </Paper>
             </Grid>

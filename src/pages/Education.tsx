@@ -5,10 +5,12 @@ const Eductation: React.FC = () => {
     console.log('education');
     return (
         <Page>
-            <Typography>Education</Typography>
-            <Typography>University of Alaska Fairbanks</Typography>
-            <Typography>Physics Stuff</Typography>
-            <Typography>Computer Science stuff</Typography>
+            <div>
+                <Typography>Education</Typography>
+                <Typography>University of Alaska Fairbanks</Typography>
+                <Typography>Physics Stuff</Typography>
+                <Typography>Computer Science stuff</Typography>
+            </div>
         </Page>
     );
 };

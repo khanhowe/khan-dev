@@ -3,35 +3,42 @@ import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
 
-interface NavBarProps {
+interface TabData {
+    title: string;
+    route: string;
 }
+
 
 const a11yProps = (index: number) => {
     return {
         id: `tab-${index}`,
         'aria-controls': `tabpanel-${index}`
     };
-}
+};
 
-const NavBar: React.FC<NavBarProps> = () => {
+
+const NavBar: React.FC = () => {
     const [pageSelect, setPageSelect] = useState<number>(0);
     const navigate = useNavigate();
-    const routes = ['/', '/about', '/skills', '/experience', '/education', '/projects', '/contact'];
+    const tabs: TabData[] = [
+        { title: 'Home', route: '/'},
+        { title: 'About', route: '/about'},
+        { title: 'Skills', route: '/skills' },
+        { title: 'Experience', route: '/experience'},
+        { title: 'Education', route: '/education'},
+        { title: 'Projects', route: '/projects'}
+    ];
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+        console.log('clicked');
         setPageSelect(newValue);
-        navigate(routes[newValue]);
+        console.log('Navigate to: ', tabs[newValue].route);
+        navigate(tabs[newValue].route);
     };
     return (
         <div className='navbar-div'>
-            <Tabs value={pageSelect} onChange={handleChange} className='navbar'>
-                <Tab label='Home' {...a11yProps(0)}/>
-                <Tab label='About' {...a11yProps(1)}/>
-                <Tab label='Skills' {...a11yProps(2)}/>
-                <Tab label='Experience' {...a11yProps(3)}/>
-                <Tab label='Education' {...a11yProps(4)}/>
-                <Tab label='Projects' {...a11yProps(5)}/>
-                <Tab label='Contact' {...a11yProps(6)}/>
+            <Tabs value={pageSelect} onChange={handleChange}>
+                {tabs.map((tab, index) => <Tab label={tab.title} className="navbar-tab" {...a11yProps(index)} key={index}/>)}
             </Tabs>
         </div>
     );
