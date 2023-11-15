@@ -8,14 +8,12 @@ interface TabData {
     route: string;
 }
 
-
 const a11yProps = (index: number) => {
     return {
         id: `tab-${index}`,
         'aria-controls': `tabpanel-${index}`
     };
 };
-
 
 const NavBar: React.FC = () => {
     const [pageSelect, setPageSelect] = useState<number>(0);
@@ -30,9 +28,7 @@ const NavBar: React.FC = () => {
     ];
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        console.log('clicked');
         setPageSelect(newValue);
-        console.log('Navigate to: ', tabs[newValue].route);
         navigate(tabs[newValue].route);
     };
     return (
