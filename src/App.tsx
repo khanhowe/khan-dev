@@ -8,9 +8,8 @@ import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import About from './pages/About';
 import Home from './pages/Home';
-import Experience from './pages/Experience';
-import Eductation from './pages/Education';
 import Projects from './pages/Projects';
+import Background from './pages/Background';
 
 
 function App() {
@@ -27,8 +26,7 @@ function App() {
                   <Routes>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/about' element={<About/>}/>
-                    <Route path='/experience' element={<Experience/>}/>
-                    <Route path='/education' element={<Eductation/>}/>
+                    <Route path='/background' element={<Background/>}/>
                     <Route path='/projects' element={<Projects/>}/>
                   </Routes>
               </Paper>

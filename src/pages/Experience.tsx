@@ -1,14 +1,7 @@
 import { Typography } from "@mui/material";
-import Page from "../components/Page";
 import '../styles/Experience.css';
 
-interface ExperienceSectionProps {
-    // LogoPath: string;
-    // CompanyName: string;
-    // JobTitle: string;
-}
-
-const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
+const ExperienceSection: React.FC = () => {
     return (
         <div className='experience-div'>
             <div>
@@ -27,13 +20,11 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = () => {
 const Experience: React.FC = () => {
     console.log('test');
     return (
-        <Page>
-            <div className='card-list'>
-                <ExperienceSection/>
-                <hr/>
-                <ExperienceSection/>
-            </div>
-        </Page>
+        <div className='card-list'>
+            <ExperienceSection/>
+            <hr/>
+            <ExperienceSection/>
+        </div>
     );
 }
 
