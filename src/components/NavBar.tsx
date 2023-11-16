@@ -21,7 +21,6 @@ const NavBar: React.FC = () => {
     const tabs: TabData[] = [
         { title: 'Home', route: '/'},
         { title: 'About', route: '/about'},
-        { title: 'Skills', route: '/skills' },
         { title: 'Experience', route: '/experience'},
         { title: 'Education', route: '/education'},
         { title: 'Projects', route: '/projects'}

@@ -16,7 +16,7 @@ const NameTitle: React.FC<NameTitleProps> = ({name}) => {
                 {name}
             </Typography>
             <Typography variant="h6">
-                Full-stack engineer
+                Full-stack Engineer
             </Typography>
             <hr className="title-hr"/>
         </div>
@@ -26,3 +26,4 @@ const NameTitle: React.FC<NameTitleProps> = ({name}) => {
 export default NameTitle;
 
 
+ 

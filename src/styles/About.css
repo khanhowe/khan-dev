@@ -1,3 +1,16 @@
+.about {
+
+}
+
 .about-text {
     margin-top: 20px;
+}
+
+.skills {
+
+}
+
+.skill-chip {
+    margin: 10px 5px 0px 0px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
