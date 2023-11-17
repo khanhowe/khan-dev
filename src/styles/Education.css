@@ -3,7 +3,7 @@
 }
 
 .uaf-image {
-    height: 30vw;
+    max-height: 10vw;
 }
 
 .summary-text {

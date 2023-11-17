@@ -30,14 +30,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        {isSmallScreen ? 
-          <div className='view-paper'>
-            <AppBody/>
-          </div> :
-          <Paper elevation={3} className='view-paper'>
-            <AppBody/>
-          </Paper>
-        }
+        <div className='view-paper'>
+          <AppBody/>
+        </div>
         {isSmallScreen && <Footer/>}
       </div>
     </ThemeProvider>

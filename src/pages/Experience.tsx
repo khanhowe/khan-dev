@@ -25,7 +25,7 @@ const experienceList: ExperienceItem[] = [
         dateRange: '2018-2020',
         logoSource: '/attently.jpeg',
         description: [
-            'At Attently, I took a lead role in crafting and implementing sophisticated data analysis tools and processing systems, which were instrumental in dissecting facial expression data for valuable customer feedback metrics. My tech stack included an array of AWS services like Kinesis, Rekognition, MongoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data. I collaborated closely with cross-functional teams to engineer React.js web plugins, elevating the functionality and user experience of our web applications. Notably, I architected and brought to life fundamental video conferencing applications using cutting-edge WebRTC technology. In the dynamic startup environment, I thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots.',
+            'At Attently, I took a lead role in crafting and implementing sophisticated data analysis tools and processing systems, which were instrumental in dissecting facial expression data for valuable customer feedback metrics. My tech stack included an array of AWS services like Kinesis, Rekognition, DynamoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data. I collaborated closely with cross-functional teams to engineer React.js web plugins, elevating the functionality and user experience of our web applications. Notably, I architected and brought to life fundamental video conferencing applications using cutting-edge WebRTC technology. In the dynamic startup environment, I thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots.',
         ]
     },
 ];
@@ -36,14 +36,16 @@ const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange
     return (
         <div className='experience-section'>
             <div className='experience-header'>
-                <div>
+                <div className='company-logo'>
+                    <img src={logoSource} alt='class-logo' className='company-logo-img'/>
+                </div>
+                <div className='experience-info'>
                     <Typography variant='h5'>{title}</Typography>
                     <Typography variant='h6'>{company}</Typography>
                     <Typography>{dateRange}</Typography>
-                    <hr/>
                 </div>
-                <img src={logoSource} alt='class-logo' className='company-logo'/>
             </div>
+            <hr/>
             <div className='experience-text-div'>
                 {description.map((paragraph, index) => <Typography key={index}>{paragraph}</Typography>)}
             </div>
@@ -55,6 +57,9 @@ const Experience: React.FC = () => {
     console.log('test');
     return (
         <div className='card-list'>
+            <div className='background-section-title'>
+                <Typography variant='h4' >Experience</Typography>
+            </div>
             {experienceList.map((item, index) => <ExperienceSection 
                 key={index} 
                 title={item.title}

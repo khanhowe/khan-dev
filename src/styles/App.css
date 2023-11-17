@@ -16,7 +16,7 @@
 }
 
 .title-hr {
-    min-width: 30vw;
+    width: 100%
 }
 
 p {
@@ -35,5 +35,5 @@ p {
 hr {
     border-color: black;
     border-width: 0.5px;
-    min-width: 10vw;
+    max-width: 800px;
 }

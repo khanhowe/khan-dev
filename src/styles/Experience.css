@@ -3,13 +3,17 @@
 }
 
 .experience-section {
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .experience-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+}
+
+.experience-info {
+    flex: 1;
+    text-align: right;
 }
 
 .experience-text-div {
@@ -19,5 +23,13 @@
 }
 
 .company-logo {
-    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-logo-img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
 }
