@@ -8,7 +8,6 @@ const Footer: React.FC = () => {
     const currentYear = currentDate.getFullYear()
     return (
     <footer className="footer">
-        <hr className='footer-hr'/>
         <Contact/>
         <Typography style={{fontSize: '0.8rem'}}>{`©${currentYear} Khan Howe`}</Typography>
     </footer>
