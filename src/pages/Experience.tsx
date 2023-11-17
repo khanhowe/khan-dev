@@ -6,7 +6,8 @@ interface ExperienceItem {
     company: string;
     dateRange: string;
     logoSource: string;
-    description: string[];
+    description: string;
+    bulletPoints: string[];
 }
 
 const experienceList: ExperienceItem[] = [
@@ -15,8 +16,14 @@ const experienceList: ExperienceItem[] = [
         company: 'Class Technologies Inc.',
         dateRange: '2021-2023',
         logoSource: '/class.jpg',
-        description: [
-            'As a Full Stack Engineer at Class Technologies, I excelled in both front-end and back-end development, creating and maintaining React.js-powered admin and in-app pages while seamlessly integrating web views for various client teams. My back-end expertise spanned designing and implementing TypeScript/Node.js API endpoints, optimizing legacy code, and efficiently managing PostgreSQL databases. Proficient in tools like AWS, I contributed to application integrations, front-end localization, and punctual deployments to production. In leadership roles, I led daily stand-ups, participated in hiring processes, and mentored new developers, showcasing my adaptability and commitment to project success.',
+        description: 'As a Full Stack Engineer at Class Technologies, I excelled in both the creation and maintenance of React-powered admin and in-app pages.',
+        bulletPoints: [
+            'Designed and implemented TypeScript API endpoints hosted on AWS Lambda via the Serverless framework.',
+            'Refactored and optimized mountains of legacy code.',
+            'Efficiently managed PostgreSQL databases.',
+            'Contributed to application integrations, front-end localization, and punctual deployments to production.',
+            'In leadership roles, I led daily stand-ups, participated in hiring processes, and mentored new developers.',
+            'Excelled at adaptability and my commitment to project success.'
         ]
     },
     {
@@ -24,15 +31,19 @@ const experienceList: ExperienceItem[] = [
         company: 'Attently Inc.',
         dateRange: '2018-2020',
         logoSource: '/attently.jpeg',
-        description: [
-            'At Attently, I took a lead role in crafting and implementing sophisticated data analysis tools and processing systems, which were instrumental in dissecting facial expression data for valuable customer feedback metrics. My tech stack included an array of AWS services like Kinesis, Rekognition, DynamoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data. I collaborated closely with cross-functional teams to engineer React.js web plugins, elevating the functionality and user experience of our web applications. Notably, I architected and brought to life fundamental video conferencing applications using cutting-edge WebRTC technology. In the dynamic startup environment, I thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots.',
+        description: 'At Attently, I took a lead role in crafting and implementing sophisticated data analysis tools, which were instrumental in dissecting facial expression data for valuable customer feedback metrics.',
+        bulletPoints: [
+            'Implemented AWS services like Kinesis, Rekognition, DynamoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data.',
+            'Collaborated closely with cross-functional teams to build React web plugins, elevating the functionality of our web applications.',
+            'Built fundamental video conferencing applications using WebRTC technology.',
+            'Thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots in an early startup environment.'
         ]
     },
 ];
 
 
 
-const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, logoSource, description }) => {
+const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, logoSource, description, bulletPoints }) => {
     return (
         <div className='experience-section'>
             <div className='experience-header'>
@@ -47,7 +58,10 @@ const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange
             </div>
             <hr/>
             <div className='experience-text-div'>
-                {description.map((paragraph, index) => <Typography key={index}>{paragraph}</Typography>)}
+                <Typography>{description}</Typography>
+                <Typography component='ul'>
+                    {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
+                </Typography>
             </div>
         </div>  
     );
@@ -67,6 +81,7 @@ const Experience: React.FC = () => {
                 dateRange={item.dateRange}
                 logoSource={item.logoSource}
                 description={item.description}
+                bulletPoints={item.bulletPoints}
             />)}
         </div>
     );

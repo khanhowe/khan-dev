@@ -14,6 +14,7 @@ const skillChips: SkillChipProps[] = [
     {label: 'GitHub Actions', color: 'black'},
     {label: 'Docker', color: 'rgb(13, 183, 237)'},
     {label: 'Python', color: '#3776ab'},
+    {label: 'Material UI', color: 'rgb(51, 153, 255)'},
     {label: 'Next.js', color: 'black'},
     {label: 'PostgreSQL', color: 'rgb(105, 158, 202)'},
     {label: 'MongoDB', color: 'rgb(0, 237, 100)'},
