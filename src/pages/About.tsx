@@ -26,7 +26,7 @@ const About: React.FC  = () => {
     return (
         <Page>
             <div className="about">
-                <img src='/khanhowe.jpeg' alt='khan-howe' className='profile-image'/>
+                <img src='/khanhowe-pic.jpeg' alt='khan-howe' className='profile-image'/>
                 <div className='about-text'>
                     <Typography fontFamily='sans-serif' >
                         I am a <b>passionate</b> Full-stack Engineer based in Tacoma, Washington with 8 years experience in SaaS application and product development. With a proven ability to produce <b>high-quality, test-driven, clean code</b>, I adapt to fit the requirements of many development practices and web-based technologies.
