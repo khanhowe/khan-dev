@@ -1,7 +1,7 @@
 import './styles/App.css';
 import NameTitle from './components/NameTitle';
 import './styles/Home.css';
-import { Paper, ThemeProvider, useMediaQuery } from '@mui/material';
+import { ThemeProvider} from '@mui/material';
 import theme from './theme';
 import NavBar from './components/NavBar';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
@@ -26,14 +26,13 @@ const AppBody: React.FC = () => (
 
 
 function App() {
-  const isSmallScreen = useMediaQuery('(max-width:600px)');
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <div className='view-paper'>
           <AppBody/>
         </div>
-        {isSmallScreen && <Footer/>}
+        <Footer/>
       </div>
     </ThemeProvider>
   );

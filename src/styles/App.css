@@ -1,7 +1,7 @@
 .App {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the content takes at least the full viewport height */
+    padding-bottom: 100px;
 }
 
 .view-paper {
