@@ -6,7 +6,7 @@ const Background: React.FC = () => {
     return (
         <Page>
             <Experience/>
-            <Eductation/>
+            {/* <Eductation/> */}
         </Page>
     )
 }
