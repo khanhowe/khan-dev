@@ -9,6 +9,7 @@
 
 .about-link {
     text-decoration: underline;
+    color: black;
     &:hover {
         cursor: pointer;
     }

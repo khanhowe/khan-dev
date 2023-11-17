@@ -10,7 +10,7 @@ const Home: React.FC  = () => {
                 <div>
                     <Typography variant="h3">Hey there, I'm Khan.</Typography>
                     <Typography variant="h5">A Full-Stack Engineer.</Typography>
-                    <Typography variant="h5" style={{marginTop: '10px'}}>Check out my <a href=''>resume</a> or learn more about me <span className='about-link' onClick={() => {navigate('/about')}}>here</span>.</Typography>
+                    <Typography variant="h5" style={{marginTop: '10px'}}>Download my <a href='/Resume110823.pdf' download='khan-howe-resume.pdf'>resume</a> or learn more about me <span className='about-link' onClick={() => {navigate('/about')}}>here</span>.</Typography>
                 </div>
             </div>
         </Page>
