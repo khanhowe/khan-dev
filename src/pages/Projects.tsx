@@ -18,8 +18,8 @@ const projects: ProjectCardProps[] = [
         url: 'https://www.khanhowe.dev'
     },
     {
-        title: 'Robert Willcox 3D Art',
-        description: 'An art portfolio I built for a talented friend of mine.',
+        title: 'Robert Willcox Art',
+        description: 'An art portfolio. Built to highlight scenes of contemporary beauty products.',
         imageSrc: '/robertwillcox.jpg',
         url: 'https://www.robertwillcox.com'
     },
@@ -38,35 +38,35 @@ const projects: ProjectCardProps[] = [
 ];
 
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url }) => {
     return (
-        <Grid item xs={12} sm={6} md={4}>
-            <Card>
-                <CardActionArea href={url}>
-                    <CardMedia
-                        component='img'
-                        height='200px'
-                        image={imageSrc}
-                        alt='project-1'
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant='h6' component='div'>
-                            {title}
-                        </Typography>
-                        <Typography variant='body2' color='text.secondary'>
-                            {description}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-                <CardActions>
-                    <a>
-                        <GitHub/>
-                    </a>
-                </CardActions>
-            </Card>
-        </Grid>
+      <Grid item xs={12} sm={6} md={4}>
+          <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }}>
+            <CardActionArea href={url}>
+              <CardMedia
+                component="img"
+                height="200px"
+                image={imageSrc}
+                alt="project-1"
+              />
+              <CardContent style={{ flex: 1 }}>
+                <Typography gutterBottom variant="h6" component="div">
+                  {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {description}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <a href={url}>
+                <GitHub />
+              </a>
+            </CardActions>
+          </Card>
+      </Grid>
     );
-};
+  };
 
 const Projects: React.FC = () => {
     console.log('projects');
