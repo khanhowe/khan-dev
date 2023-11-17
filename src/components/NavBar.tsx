@@ -1,6 +1,6 @@
 import { Tab, Tabs } from "@mui/material";
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
 
 interface TabData {
@@ -16,19 +16,29 @@ const a11yProps = (index: number) => {
 };
 
 const NavBar: React.FC = () => {
+    const location = useLocation();
     const [pageSelect, setPageSelect] = useState<number>(0);
     const navigate = useNavigate();
-    const tabs: TabData[] = [
+    
+    const tabs: TabData[] = useMemo(() => [
         { title: 'Home', route: '/'},
         { title: 'About', route: '/about'},
         { title: 'Background', route: '/background'},
         { title: 'Projects', route: '/projects'}
-    ];
+    ], []);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setPageSelect(newValue);
         navigate(tabs[newValue].route);
     };
+
+    useEffect(() => {
+        const selectedTabIndex = tabs.findIndex(tab => tab.route === location.pathname);
+        if (selectedTabIndex !== -1) {
+            setPageSelect(selectedTabIndex);
+        }
+    }, [location.pathname, tabs]);
+
     return (
         <div className='navbar-div'>
             <Tabs value={pageSelect} onChange={handleChange}   textColor="secondary" indicatorColor="secondary">
