@@ -10,11 +10,12 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Background from './pages/Background';
 import Footer from './components/Footer';
+import useFadeInEffect from './hooks/useFadeInEffect';
 
 const Header: React.FC = () => {
-
+  const isVisible = useFadeInEffect();
   return (
-    <div>
+    <div className={isVisible ? 'fade-in' : 'fade-out'}>
       <NameTitle name='Khan Howe'/>
       <NavBar/>
     </div>

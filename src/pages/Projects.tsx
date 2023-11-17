@@ -1,13 +1,15 @@
-import { Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
-import { GitHub } from "@mui/icons-material";
-
+import useFadeInEffect from "../hooks/useFadeInEffect";
+import '../styles/App.css';
+import '../styles/Projects.css';
 
 interface ProjectCardProps {
     title: string;
     description: string;
     imageSrc: string;
     url: string;
+    repoUrl?: string;
 }
 
 const projects: ProjectCardProps[] = [
@@ -15,7 +17,8 @@ const projects: ProjectCardProps[] = [
         title: 'khanhowe.dev',
         description: 'This is the page you\'re on now! Check out the repo to see how it was built!',
         imageSrc: '/khanhowe.jpg',
-        url: 'https://www.khanhowe.dev'
+        url: 'https://www.khanhowe.dev',
+        repoUrl: 'https://github.com/khanhowe/khan-dev'
     },
     {
         title: 'Robert Willcox Art',
@@ -38,9 +41,9 @@ const projects: ProjectCardProps[] = [
 ];
 
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url, repoUrl }) => {
     return (
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6}>
           <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }}>
             <CardActionArea href={url}>
               <CardMedia
@@ -50,7 +53,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
                 alt="project-1"
               />
               <CardContent style={{ flex: 1 }}>
-                <Typography gutterBottom variant="h6" component="div">
+                <Typography gutterBottom className='project-title' variant="h6" component="div">
                   {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
@@ -59,9 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <a href={url}>
-                <GitHub />
-              </a>
+              {repoUrl && <Button href={repoUrl}>GitHub</Button>}
             </CardActions>
           </Card>
       </Grid>
@@ -69,10 +70,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
   };
 
 const Projects: React.FC = () => {
-    console.log('projects');
+    const isVisible = useFadeInEffect();
     return (
         <Page>
-            <div className='projects'>
+            <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
                 <div>
                     <Grid container spacing={1}>
                         {projects.map((project, index) => <ProjectCard 
@@ -81,6 +82,7 @@ const Projects: React.FC = () => {
                             description={project.description}
                             imageSrc={project.imageSrc}
                             url={project.url}
+                            repoUrl={project.repoUrl}
                         />)}
                     </Grid>
                 </div>

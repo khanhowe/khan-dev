@@ -11,6 +11,17 @@
     align-items: center;
 }
 
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
 .view-paper {
     flex: 1;
     margin: 5% 5% 0% 5%;

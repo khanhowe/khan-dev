@@ -1,20 +1,11 @@
 import { Typography } from "@mui/material";
 import Page from "../components/Page";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import useFadeInEffect from "../hooks/useFadeInEffect";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const fadeInTimer = setTimeout(() => {
-            setIsVisible(true);
-        }, 100);
-
-        return () => clearTimeout(fadeInTimer);
-    }, []);
-    
+    const isVisible = useFadeInEffect();
     return (
         <Page>
             <div className={`home ${isVisible ? 'fade-in' : 'fade-out'}`}>

@@ -1,3 +1,7 @@
 .projects {
     width: 100%;
 }
+
+.project-title {
+    text-decoration: underline;
+}
