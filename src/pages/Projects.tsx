@@ -30,10 +30,10 @@ const projects: ProjectCardProps[] = [
         url: 'https://www.robertwillcox.com'
     },
     {
-        title: 'Xplicit.io',
+        title: 'Xplicit',
         description: 'Tool that identifies explicit language in song lyrics. This is an older project.',
-        imageSrc: '/attently.jpeg',
-        url: 'https://www.xplicit.io'
+        imageSrc: '/xplicit.jpg',
+        url: 'https://xplicit-website.herokuapp.com'
     },
 ];
 
