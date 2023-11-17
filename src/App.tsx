@@ -12,21 +12,21 @@ import Background from './pages/Background';
 import Footer from './components/Footer';
 
 const Header: React.FC = () => {
-  const location = useLocation();
-  const isHomeRoute = location.pathname === '/';
+
   return (
     <div>
-      {!isHomeRoute && <NameTitle name='Khan Howe'/>}
+      <NameTitle name='Khan Howe'/>
       <NavBar/>
     </div>
   );
 }
 
 const AppBody: React.FC = () => {
-
+  const location = useLocation();
+  const isHomeRoute = location.pathname === '/';
   return (
-      <div>
-        <Header/>
+      <div className='app-body'>
+        {!isHomeRoute && <Header/>}
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/about' element={<About/>}/>
