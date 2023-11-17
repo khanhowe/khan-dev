@@ -1,16 +1,31 @@
 .about {
+    text-align: center;
+}
 
+.profile-image {
+    border-radius: 50%;
+    min-height: 10vw;
+    max-height: 50vw;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .about-text {
     margin-top: 20px;
+    min-width: 20vw;
+    text-align: left;
 }
 
 .skills {
+    margin-top: 20px;
+    padding-top: 10px;
+}
 
+.skill-chip-list {
+    padding-top: 10px;
 }
 
 .skill-chip {
     margin: 10px 5px 0px 0px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }

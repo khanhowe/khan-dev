@@ -1,22 +1,19 @@
 import { ReactNode } from 'react';
 import '../styles/Page.css';
-import Contact from '../pages/Contact';
-import { Typography } from '@mui/material';
+import '../styles/App.css';
+import { useMediaQuery } from '@mui/material';
+import Footer from './Footer';
 
 interface PageProps {
     children: ReactNode;
 };
 
 const Page: React.FC<PageProps> = ({ children }) => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
+    const isSmallScreen = useMediaQuery('(max-width:600px)');
     return (
         <div className='page-div'>
             {children}
-            <div className='footer'>
-                <Contact/>
-                <Typography style={{fontSize: '0.8rem'}}>{`©${currentYear} Khan Howe`}</Typography>
-            </div>
+            {!isSmallScreen && <Footer/>}
         </div>
     );
 };

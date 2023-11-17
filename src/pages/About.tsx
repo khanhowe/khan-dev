@@ -8,6 +8,7 @@ const skillChips: SkillChipProps[] = [
     {label: 'TypeScript', color: '#3178c6'},
     {label: 'React', color: 'rgba(8, 126, 164, 0.8)'},
     {label: 'AWS', color: 'rgb(255, 153, 0)'},
+    {label: 'Serverless', color: 'rgb(253, 87, 80)'},
     {label: 'GitHub Actions', color: 'black'},
     {label: 'Docker', color: 'rgb(13, 183, 237)'},
     {label: 'Python', color: '#3776ab'},
@@ -25,7 +26,7 @@ const About: React.FC  = () => {
     return (
         <Page>
             <div className="about">
-                <img src='/khanhowe.jpeg' alt='khan-howe' style={{borderRadius: '50vw'}}/>
+                <img src='/khanhowe.jpeg' alt='khan-howe' className='profile-image'/>
                 <div className='about-text'>
                     <Typography fontFamily='sans-serif' >
                         I am a passionate <b>Full-stack engineer</b> based in Tacoma, Washington with 8 years experience in SaaS application and product development. With a proven ability to produce <b>high-quality, test-driven, clean code</b>, I adapt to fit the requirements of many development practices and web-based technologies.
@@ -37,7 +38,9 @@ const About: React.FC  = () => {
             </div>
             <div className='skills'>
                 <Typography variant="h5" style={{textDecoration: 'underline'}}>Skills</Typography>
-                {skillChips.map((skill, index) => <SkillChip key={index} label={skill.label} color={skill.color}/>)}
+                <div className='skill-chip-list'>
+                    {skillChips.map((skill, index) => <SkillChip key={index} label={skill.label} color={skill.color}/>)}
+                </div>
             </div>
         </Page>
     );
