@@ -3,6 +3,7 @@
 }
 
 .profile-image {
+    margin: 20px none;
     border-radius: 50%;
     min-height: 10vw;
     max-height: 50vw;
@@ -10,13 +11,13 @@
 }
 
 .about-text {
-    margin-top: 20px;
+    margin-top: 40px;
     min-width: 20vw;
     text-align: left;
 }
 
 .skills {
-    margin-top: 20px;
+    margin-top: 40px;
     padding-top: 10px;
 }
 

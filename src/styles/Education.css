@@ -1,5 +1,15 @@
 .education {
-    margin: none 10vw;
+    width: 100%;
+}
+
+.education-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.education-info {
+    text-align: right;
 }
 
 .uaf-image {
