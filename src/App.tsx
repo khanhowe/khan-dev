@@ -1,6 +1,5 @@
 import './styles/App.css';
 import NameTitle from './components/NameTitle';
-import './styles/Home.css';
 import { ThemeProvider} from '@mui/material';
 import theme from './theme';
 import NavBar from './components/NavBar';

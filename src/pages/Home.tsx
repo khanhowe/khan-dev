@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Page from "../components/Page";
 import { useNavigate } from "react-router-dom";
 import useFadeInEffect from "../hooks/useFadeInEffect";
+import '../styles/Home.scss';
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
