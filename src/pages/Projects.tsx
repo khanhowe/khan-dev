@@ -30,7 +30,7 @@ const projects: ProjectCardProps[] = [
         title: 'Legacy Portfolio',
         description: 'My old portfolio. Certainly stylized, but I have learned much since.',
         imageSrc: '/khanhowelegacy.jpg',
-        url: 'https://www.khanhowe.dev'
+        url: 'https://khan-dev.herokuapp.com'
     },
     {
         title: 'Xplicit',
@@ -44,7 +44,7 @@ const projects: ProjectCardProps[] = [
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url, repoUrl }) => {
     return (
       <Grid item xs={12} sm={6}>
-          <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }}>
+          <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }} elevation={5}>
             <CardActionArea href={url}>
               <CardMedia
                 component="img"

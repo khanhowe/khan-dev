@@ -46,18 +46,20 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
             <div className='experience-header'>
                 <div>
                     <Typography variant='h5'>{company}</Typography>
-                    <Typography>{dateRange}</Typography>
                 </div>
                 <div className='experience-info'>
-                    <Typography variant='h6'>{title}</Typography>
+                    <Typography>{title}</Typography>
+                    <Typography >{dateRange}</Typography>
                 </div>
             </div>
             <hr/>
             <div className='experience-text-div'>
                 <Typography>{description}</Typography>
-                <Typography component='ul'>
-                    {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
-                </Typography>
+                <div className='bullet-points'>
+                    <Typography component='ul'>
+                        {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
+                    </Typography>
+                </div>
             </div>
         </div>  
     );
