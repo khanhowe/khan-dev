@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
@@ -42,34 +42,18 @@ const projects: ProjectCardProps[] = [
     },
 ];
 
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url, repoUrl }) => {
     return (
-      <Grid item xs={12} sm={6}>
-          <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }} elevation={5}>
-            <CardActionArea href={url}>
-              <CardMedia
-                component="img"
-                height="200px"
-                image={imageSrc}
-                alt="project-1"
-              />
-              <CardContent style={{ flex: 1 }}>
-                <Typography gutterBottom className='project-title' variant="h6" component="div">
-                  {title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              {repoUrl && <Button href={repoUrl}>GitHub</Button>}
-            </CardActions>
-          </Card>
-      </Grid>
-    );
-  };
+        <Grid item sm={12} md={6}>
+            <div className='project-card'>
+                <img src={imageSrc} alt='project-preview' className='project-preview-img'/>
+                <Typography variant='h5' gutterBottom><a href={url}>{title}</a></Typography>
+                <Typography>{description}</Typography>
+                {repoUrl && <Typography className='github-link'><a href={repoUrl}>GitHub</a></Typography>}
+            </div>
+        </Grid>
+    )
+}
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
