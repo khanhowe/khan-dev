@@ -22,6 +22,13 @@
     pointer-events: none;
 }
 
+.section-title {
+    width: 100%;
+    margin: 6vw 0px;
+    text-align: left;
+    text-decoration: underline;
+}
+
 .view-paper {
     flex: 1;
     margin: 5% 5% 0% 5%;

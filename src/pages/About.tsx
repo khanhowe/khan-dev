@@ -4,6 +4,8 @@ import '../styles/App.css';
 import '../styles/About.scss';
 import SkillChip, { SkillChipProps } from "../components/SkillChip";
 import useFadeInEffect from "../hooks/useFadeInEffect";
+import { useIsSmScreen } from "../hooks/useScreenSize";
+import SectionTitle from "../components/SectionTitle";
 
 const skillChips: SkillChipProps[] = [
     {label: 'Node.js', color: 'rgb(67, 133, 61)'},
@@ -26,8 +28,10 @@ const skillChips: SkillChipProps[] = [
 
 const About: React.FC  = () => {
     const isVisible = useFadeInEffect();
+    const isSmScreen = useIsSmScreen();
     return (
         <Page>
+            {isSmScreen && <SectionTitle title='About Me'/>}
             <div className={`about ${isVisible ? 'fade-in' : 'fade-out'}`}>
                 <div className='about-bio'>
                     <img src='/khanhowe-pic.jpeg' alt='khan-howe' className='profile-image'/>
@@ -40,8 +44,8 @@ const About: React.FC  = () => {
                         </Typography>
                     </div>
                 </div>
+                <SectionTitle title='Skills'/>
                 <div className='skills'>
-                    <Typography variant="h5" style={{textDecoration: 'underline'}}>Skills</Typography>
                     <div className='skill-chip-list'>
                         {skillChips.map((skill, index) => <SkillChip key={index} label={skill.label} color={skill.color}/>)}
                     </div>

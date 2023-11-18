@@ -3,6 +3,8 @@ import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
 import '../styles/Projects.css';
+import { useIsSmScreen } from "../hooks/useScreenSize";
+import SectionTitle from "../components/SectionTitle";
 
 interface ProjectCardProps {
     title: string;
@@ -71,8 +73,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
+    const isSmScreen = useIsSmScreen();
     return (
         <Page>
+            {isSmScreen && <SectionTitle title='Projects'/>}
             <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
                 <div>
                     <Grid container spacing={1}>

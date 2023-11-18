@@ -1,14 +1,12 @@
-import { Typography } from "@mui/material";
 import '../styles/Education.css';
 import '../styles/Background.css';
 import { ExperienceSection } from "./Experience";
+import SectionTitle from "../components/SectionTitle";
 
 const Eductation: React.FC = () => {
     return (
         <div className='education'>
-            <div className='background-section-title'>
-                <Typography variant='h4' >Education</Typography>
-            </div>
+            <SectionTitle title='Education'/>
             <ExperienceSection 
                 title='B.S. Computational Physics'
                 company='University of Alaska Fairbanks'

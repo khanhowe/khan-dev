@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import '../styles/Experience.css';
+import SectionTitle from "../components/SectionTitle";
 
 interface ExperienceItem {
     title: string;
@@ -72,9 +73,7 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
 const Experience: React.FC = () => {
     return (
         <div className='card-list'>
-            <div className='background-section-title'>
-                <Typography variant='h4' >Experience</Typography>
-            </div>
+            <SectionTitle title='Experience'/>
             {experienceList.map((item, index) => <ExperienceSection 
                 key={index} 
                 title={item.title}
