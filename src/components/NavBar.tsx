@@ -41,7 +41,7 @@ const NavBar: React.FC = () => {
 
     return (
         <div className='navbar-div'>
-            <Tabs value={pageSelect} onChange={handleChange}   textColor="primary" indicatorColor="primary">
+            <Tabs value={pageSelect} onChange={handleChange}   textColor="primary" indicatorColor="primary" className='navbar' variant='fullWidth'>
                 {tabs.map((tab, index) => <Tab label={tab.title}  className='navbar-tab' {...a11yProps(index)} key={index}/>)}
             </Tabs>
         </div>
