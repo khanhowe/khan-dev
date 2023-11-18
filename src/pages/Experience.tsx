@@ -49,19 +49,23 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
                 </div>
                 <div className='experience-info'>
                     <Typography>{title}</Typography>
-                    <Typography >{dateRange}</Typography>
+                    <Typography>{dateRange}</Typography>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div className='experience-text-div'>
                 <Typography>{description}</Typography>
                 <div className='bullet-points'>
                     <Typography component='ul'>
-                        {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
+                        {bulletPoints.map((point, index) => (
+                            <li key={index}>
+                                <Typography>{point}</Typography>
+                            </li>
+                        ))}
                     </Typography>
                 </div>
             </div>
-        </div>  
+        </div>
     );
 };
 
