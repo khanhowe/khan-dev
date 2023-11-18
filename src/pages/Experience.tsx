@@ -1,5 +1,5 @@
 import { Typography } from "@mui/material";
-import '../styles/Experience.css';
+import '../styles/Experience.scss';
 import SectionTitle from "../components/SectionTitle";
 
 interface ExperienceItem {

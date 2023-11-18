@@ -1,0 +1,76 @@
+@import 'breakpoints';
+@import 'mixins';
+
+.card-list {
+    width: 100%;
+}
+
+.experience-section {
+    padding-bottom: 50px;
+    @include media-query($tablet-breakpoint) {
+        padding: 20px;
+    }
+}
+
+.experience-header {
+    display: flex;
+    flex-direction: column;
+    @include media-query($tablet-breakpoint) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.experience-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    @include media-query($tablet-breakpoint) {
+        margin-top: 10px;
+    }
+}
+
+.experience-text-div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.company-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-logo-img {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.bullet-points {
+    margin-top: 10px;
+}
+
+ul {
+    @include media-query($tablet-breakpoint) {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+}
+  
+li {
+    @include media-query($tablet-breakpoint) {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+}
+
+.bullet-points li {
+    @include media-query($tablet-breakpoint) {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+}
+
