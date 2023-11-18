@@ -30,7 +30,7 @@ const projects: ProjectCardProps[] = [
         title: 'Legacy Portfolio',
         description: 'My old portfolio. Certainly stylized, but I have learned much since.',
         imageSrc: '/khanhowelegacy.jpg',
-        url: 'https://www.robertwillcox.com'
+        url: 'https://www.khanhowe.dev'
     },
     {
         title: 'Xplicit',
