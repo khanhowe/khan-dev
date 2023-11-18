@@ -32,7 +32,7 @@ const projects: ProjectCardProps[] = [
         title: 'Legacy Portfolio',
         description: 'My old portfolio. Certainly stylized, but I have learned much since.',
         imageSrc: '/khanhowelegacy.jpg',
-        url: 'https://khan-dev.herokuapp.com'
+        url: 'https://khan-dev-legacy-5722516bc6f3.herokuapp.com'
     },
     {
         title: 'Xplicit',
