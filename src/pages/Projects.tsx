@@ -48,7 +48,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
             <div className='project-card'>
                 <img src={imageSrc} alt='project-preview' className='project-preview-img'/>
                 <Typography variant='h5' gutterBottom><a href={url}>{title}</a></Typography>
-                <Typography>{description}</Typography>
+                <Typography variant='subtitle1'>{description}</Typography>
                 {repoUrl && <Typography className='github-link'><a href={repoUrl}>GitHub</a></Typography>}
             </div>
         </Grid>
