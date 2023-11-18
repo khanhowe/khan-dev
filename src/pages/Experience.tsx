@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
-import '../styles/Experience.css';
+import '../styles/Experience.scss';
+import SectionTitle from "../components/SectionTitle";
 
 interface ExperienceItem {
     title: string;
@@ -46,29 +47,33 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
             <div className='experience-header'>
                 <div>
                     <Typography variant='h5'>{company}</Typography>
-                    <Typography>{dateRange}</Typography>
                 </div>
                 <div className='experience-info'>
-                    <Typography variant='h6'>{title}</Typography>
+                    <Typography>{title}</Typography>
+                    <Typography>{dateRange}</Typography>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div className='experience-text-div'>
                 <Typography>{description}</Typography>
-                <Typography component='ul'>
-                    {bulletPoints.map((point, index) => <li key={index}>{point}</li>)}
-                </Typography>
+                <div className='bullet-points'>
+                    <Typography component='ul'>
+                        {bulletPoints.map((point, index) => (
+                            <li key={index}>
+                                <Typography>{point}</Typography>
+                            </li>
+                        ))}
+                    </Typography>
+                </div>
             </div>
-        </div>  
+        </div>
     );
 };
 
 const Experience: React.FC = () => {
     return (
         <div className='card-list'>
-            <div className='background-section-title'>
-                <Typography variant='h4' >Experience</Typography>
-            </div>
+            <SectionTitle title='Experience'/>
             {experienceList.map((item, index) => <ExperienceSection 
                 key={index} 
                 title={item.title}

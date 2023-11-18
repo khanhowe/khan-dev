@@ -1,8 +1,10 @@
-import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
 import '../styles/Projects.css';
+import { useIsSmScreen } from "../hooks/useScreenSize";
+import SectionTitle from "../components/SectionTitle";
 
 interface ProjectCardProps {
     title: string;
@@ -30,7 +32,7 @@ const projects: ProjectCardProps[] = [
         title: 'Legacy Portfolio',
         description: 'My old portfolio. Certainly stylized, but I have learned much since.',
         imageSrc: '/khanhowelegacy.jpg',
-        url: 'https://www.khanhowe.dev'
+        url: 'https://khan-dev.herokuapp.com'
     },
     {
         title: 'Xplicit',
@@ -40,39 +42,25 @@ const projects: ProjectCardProps[] = [
     },
 ];
 
-
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc, url, repoUrl }) => {
     return (
-      <Grid item xs={12} sm={6}>
-          <Card style={{ minHeight: '400px', display: "flex", flexDirection: "column" }}>
-            <CardActionArea href={url}>
-              <CardMedia
-                component="img"
-                height="200px"
-                image={imageSrc}
-                alt="project-1"
-              />
-              <CardContent style={{ flex: 1 }}>
-                <Typography gutterBottom className='project-title' variant="h6" component="div">
-                  {title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {description}
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-            <CardActions>
-              {repoUrl && <Button href={repoUrl}>GitHub</Button>}
-            </CardActions>
-          </Card>
-      </Grid>
-    );
-  };
+        <Grid item sm={12} md={6}>
+            <div className='project-card'>
+                <img src={imageSrc} alt='project-preview' className='project-preview-img'/>
+                <Typography variant='h5' gutterBottom><a href={url}>{title}</a></Typography>
+                <Typography variant='subtitle1'>{description}</Typography>
+                {repoUrl && <Typography className='github-link'><a href={repoUrl}>GitHub</a></Typography>}
+            </div>
+        </Grid>
+    )
+}
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
+    const isSmScreen = useIsSmScreen();
     return (
         <Page>
+            {isSmScreen && <SectionTitle title='Projects'/>}
             <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
                 <div>
                     <Grid container spacing={1}>

@@ -1,6 +1,5 @@
 import './styles/App.css';
 import NameTitle from './components/NameTitle';
-import './styles/Home.css';
 import { ThemeProvider} from '@mui/material';
 import theme from './theme';
 import NavBar from './components/NavBar';
@@ -11,6 +10,7 @@ import Projects from './pages/Projects';
 import Background from './pages/Background';
 import Footer from './components/Footer';
 import useFadeInEffect from './hooks/useFadeInEffect';
+import { useIsSmScreen } from './hooks/useScreenSize';
 
 const Header: React.FC = () => {
   const isVisible = useFadeInEffect();
@@ -39,14 +39,26 @@ const AppBody: React.FC = () => {
   );
 }
 
+const AppBodyMobile: React.FC = () => {
+  return (
+    <div className='app-body'>
+      <Home/>
+      <About/>
+      <Background/>
+      <Projects/>
+    </div>
+  );
+}
+
 
 function App() {
+  const isSmScreen = useIsSmScreen();
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <div className='view-paper'>
           <Router>
-            <AppBody/>
+            {isSmScreen ? <AppBodyMobile/> : <AppBody/>}
           </Router>
         </div>
         <Footer/>

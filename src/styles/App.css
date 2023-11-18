@@ -22,6 +22,20 @@
     pointer-events: none;
 }
 
+.sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+}
+
+.section-title {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 20px 0px;
+    text-align: center;
+}
+
 .view-paper {
     flex: 1;
     margin: 5% 5% 0% 5%;
@@ -50,6 +64,7 @@ p {
     align-items: center;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
     background-color: white;
     z-index: 1;
