@@ -1,5 +1,5 @@
 import { Chip } from "@mui/material";
-import '../styles/About.css';
+import '../styles/About.scss';
 
 export interface SkillChipProps {
     label: string;

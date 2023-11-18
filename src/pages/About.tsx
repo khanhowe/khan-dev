@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import Page from "../components/Page";
 import '../styles/App.css';
-import '../styles/About.css';
+import '../styles/About.scss';
 import SkillChip, { SkillChipProps } from "../components/SkillChip";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 

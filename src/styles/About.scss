@@ -1,3 +1,5 @@
+@import 'breakpoints';
+@import 'mixins';
 
 
 .about-bio {
@@ -16,11 +18,19 @@
     margin-top: 40px;
     min-width: 20vw;
     text-align: left;
+
+    @include media-query($tablet-breakpoint) {
+        text-align: center;
+    }
 }
 
 .skills {
     margin-top: 40px;
     padding-top: 10px;
+
+    @include media-query($tablet-breakpoint) {
+        text-align: center;
+    }
 }
 
 .skill-chip-list {
