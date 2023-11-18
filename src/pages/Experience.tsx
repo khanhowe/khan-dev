@@ -40,7 +40,7 @@ const experienceList: ExperienceItem[] = [
 
 
 
-const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, description, bulletPoints }) => {
+export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, description, bulletPoints }) => {
     return (
         <div className='experience-section'>
             <div className='experience-header'>
@@ -64,7 +64,6 @@ const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange
 };
 
 const Experience: React.FC = () => {
-    console.log('test');
     return (
         <div className='card-list'>
             <div className='background-section-title'>

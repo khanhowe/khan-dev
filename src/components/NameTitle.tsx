@@ -6,7 +6,6 @@ interface NameTitleProps {
 };
 
 const NameTitle: React.FC<NameTitleProps> = ({name}) => {
-    console.log('test');
     return (
         <div className='name-title'>
             <Typography
