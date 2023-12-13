@@ -28,6 +28,7 @@
     @include media-query($tablet-breakpoint) {
         text-align: center;
     }
+    text-align: center;
 }
 
 .skill-chip-list {
@@ -38,4 +39,8 @@
     margin: 10px 5px 0px 0px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+}
+
+.skill-select-button {
+    margin: 0px 5px;
 }
