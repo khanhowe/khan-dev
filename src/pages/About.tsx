@@ -2,33 +2,18 @@ import { Typography } from "@mui/material";
 import Page from "../components/Page";
 import '../styles/App.css';
 import '../styles/About.scss';
-import SkillChip, { SkillChipProps } from "../components/SkillChip";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import { useIsSmScreen } from "../hooks/useScreenSize";
 import SectionTitle from "../components/SectionTitle";
+import React from "react";
+import SkillList from "../components/skills/SkillList";
 
-const skillChips: SkillChipProps[] = [
-    {label: 'Node.js', color: 'rgb(67, 133, 61)'},
-    {label: 'TypeScript', color: '#3178c6'},
-    {label: 'React', color: 'rgba(8, 126, 164, 0.8)'},
-    {label: 'AWS', color: 'rgb(255, 153, 0)'},
-    {label: 'Serverless', color: 'rgb(253, 87, 80)'},
-    {label: 'GitHub Actions', color: 'black'},
-    {label: 'Docker', color: 'rgb(13, 183, 237)'},
-    {label: 'Python', color: '#3776ab'},
-    {label: 'Material UI', color: 'rgb(51, 153, 255)'},
-    {label: 'Next.js', color: 'black'},
-    {label: 'PostgreSQL', color: 'rgb(105, 158, 202)'},
-    {label: 'MongoDB', color: 'rgb(0, 237, 100)'},
-    {label: 'GraphQL', color: 'rgb(229, 53, 171)'},
-    {label: 'Jest.js', color: 'rgb(21, 194, 19)'},
-    {label: 'DataDog', color: 'rgb(99, 44, 166)'},
-    {label: 'Jira', color: '#0052CC'}
-];
+
 
 const About: React.FC  = () => {
     const isVisible = useFadeInEffect();
     const isSmScreen = useIsSmScreen();
+
     return (
         <Page>
             {isSmScreen && <SectionTitle title='About Me'/>}
@@ -48,12 +33,7 @@ const About: React.FC  = () => {
                     </div>
                 </div>
                 <SectionTitle title='Skills'/>
-                <div className='skills'>
-                    <div className='skill-chip-list'>
-                        {skillChips.map((skill, index) => <SkillChip key={index} label={skill.label} color={skill.color}/>)}
-                    </div>
-                </div>
-
+                <SkillList/>
             </div>
         </Page>
     );
