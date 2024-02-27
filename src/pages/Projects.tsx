@@ -57,25 +57,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
-    const isSmScreen = useIsSmScreen();
     return (
-        <Page>
-            {isSmScreen && <SectionTitle title='Projects'/>}
-            <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                <div>
-                    <Grid container spacing={1}>
-                        {projects.map((project, index) => <ProjectCard 
-                            key={index}
-                            title={project.title}
-                            description={project.description}
-                            imageSrc={project.imageSrc}
-                            url={project.url}
-                            repoUrl={project.repoUrl}
-                        />)}
-                    </Grid>
+        <div id='Projects'>
+            <Page>
+                <SectionTitle title='Projects'/>
+                <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                    <div>
+                        <Grid container spacing={1}>
+                            {projects.map((project, index) => <ProjectCard 
+                                key={index}
+                                title={project.title}
+                                description={project.description}
+                                imageSrc={project.imageSrc}
+                                url={project.url}
+                                repoUrl={project.repoUrl}
+                            />)}
+                        </Grid>
+                    </div>
                 </div>
-            </div>
-        </Page>
+            </Page>
+        </div>
     );
 };
 

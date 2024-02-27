@@ -7,7 +7,7 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
     return (
-        <div className='section-title sticky'>
+        <div className='section-title'>
             <Typography variant='h4'>{title}</Typography>
         </div>
     );

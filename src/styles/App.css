@@ -32,13 +32,12 @@
 .section-title {
     width: 100%;
     padding: 10px 0px;
-    margin: 20px 0px;
-    text-align: center;
+    text-align: left;
 }
 
 .view-paper {
     flex: 1;
-    margin: 5% 5% 0% 5%;
+    margin: 1% 5% 0% 5%;
 }
 
 .name-title {

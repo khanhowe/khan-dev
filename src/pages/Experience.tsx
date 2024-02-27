@@ -72,16 +72,18 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
 
 const Experience: React.FC = () => {
     return (
-        <div className='card-list'>
-            <SectionTitle title='Experience'/>
-            {experienceList.map((item, index) => <ExperienceSection 
-                key={index} 
-                title={item.title}
-                company={item.company}
-                dateRange={item.dateRange}
-                description={item.description}
-                bulletPoints={item.bulletPoints}
-            />)}
+        <div>
+            <SectionTitle title="Professional Experience"/>
+            <div className='card-list' id='Professional Experience'>
+                {experienceList.map((item, index) => <ExperienceSection 
+                    key={index} 
+                    title={item.title}
+                    company={item.company}
+                    dateRange={item.dateRange}
+                    description={item.description}
+                    bulletPoints={item.bulletPoints}
+                />)}
+            </div>
         </div>
     );
 }
