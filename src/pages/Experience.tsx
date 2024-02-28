@@ -74,7 +74,7 @@ const Experience: React.FC = () => {
     return (
         <div>
             <SectionTitle title="Professional Experience"/>
-            <div className='card-list' id='Professional Experience'>
+            <div className='card-list' id='Experience'>
                 {experienceList.map((item, index) => <ExperienceSection 
                     key={index} 
                     title={item.title}

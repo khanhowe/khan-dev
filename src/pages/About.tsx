@@ -45,7 +45,7 @@ const About: React.FC  = () => {
                     </div>
                 </div>
             </div>
-            <div id='Technologies and Languages'>
+            <div id='Skills'>
                 <SectionTitle title='Technologies and Languages'/>
                 <SkillList/>
             </div>
