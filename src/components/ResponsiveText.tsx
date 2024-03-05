@@ -15,10 +15,10 @@ const fontSizeMap = {
     },
     h2: {
         xs: '1.5rem',
-        sm: '2.0rem',
-        md: '2.5rem',
-        lg: '3.0rem',
-        xl: '3.5rem',
+        sm: '1.5rem',
+        md: '2rem',
+        lg: '2.5rem',
+        xl: '3rem',
     },
     body1: {
         xs: '1rem',
