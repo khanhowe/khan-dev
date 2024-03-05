@@ -1,5 +1,5 @@
-import { Typography } from "@mui/material";
 import '../styles/App.css';
+import ResponsiveTypography from "./ResponsiveText";
 
 interface SectionTitleProps {
     title: string;
@@ -7,9 +7,9 @@ interface SectionTitleProps {
 
 const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
     return (
-        <div className='section-title'>
-            <Typography variant='h4'>{title}</Typography>
-        </div>
+        <ResponsiveTypography variant="h2">
+            <b>{title}</b> <hr/>
+        </ResponsiveTypography>
     );
 }
 

@@ -38,9 +38,7 @@ const CenteredIntro: React.FC = () => {
 const AboutSection: React.FC = () => {
     return (
         <Box>
-            <ResponsiveTypography variant="h2">
-                About <hr/>
-            </ResponsiveTypography>
+            <SectionTitle title="About Me"/>
             <ResponsiveTypography variant="body1">
                 Based in Tacoma, Washington, I have a passion for writing high-quality, unit-tested, and maintainable code.
             </ResponsiveTypography>
@@ -71,9 +69,7 @@ const About: React.FC  = () => {
                     <Box
                         sx={{ marginTop: '4rem' }}
                     >
-                        <ResponsiveTypography variant="h2">
-                            Skills and Technologies <hr/>
-                        </ResponsiveTypography>
+                        <SectionTitle title="Skills and Technologies"/>
                         <ResponsiveTypography variant="body1">
                             Here are some of the technologies and tools I have the most experience with:
                         </ResponsiveTypography>

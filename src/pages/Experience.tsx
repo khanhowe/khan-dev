@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 import '../styles/Experience.scss';
 import SectionTitle from "../components/SectionTitle";
+import ResponsiveTypography from "../components/ResponsiveText";
 
 interface ExperienceItem {
     title: string;
@@ -72,7 +73,7 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
 
 const Experience: React.FC = () => {
     return (
-        <div>
+        <div style={{ marginTop: '4rem'}}>
             <SectionTitle title="Professional Experience"/>
             <div className='card-list' id='Experience'>
                 {experienceList.map((item, index) => <ExperienceSection 

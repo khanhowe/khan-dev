@@ -8,7 +8,7 @@ const Background: React.FC = () => {
     const isVisible = useFadeInEffect();
     return (
         <Page>
-            <div className={isVisible ? 'fade-in' : 'fade-out'}>
+            <div className={isVisible ? 'fade-in' : 'fade-out'} id="Background">
                 <Experience/>
                 <Eductation/>
             </div>

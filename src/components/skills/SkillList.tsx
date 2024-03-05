@@ -1,6 +1,6 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faAws, faDocker, faGithub, faJira, faJs, faNodeJs, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
-import { faCode, faDatabase, faDog, faServer, faVectorSquare, faVial } from "@fortawesome/free-solid-svg-icons";
+import { faAws, faDocker, faGithub, faJs, faNodeJs, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faBoltLightning, faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export enum SkillTypes {
@@ -32,7 +32,7 @@ export const SkillList: Skill[] = [
     createSkill('AWS', 'rgb(255, 153, 0)', [SkillTypes.Backend], faAws),
     createSkill('MongoDB', 'rgb(0, 237, 100)', [SkillTypes.Backend], faDatabase),
     createSkill('PostgreSQL', 'rgb(105, 158, 202)', [SkillTypes.Backend], faDatabase),
-    createSkill('Serverless', 'rgb(253, 87, 80)', [SkillTypes.Backend], faServer),
+    createSkill('Serverless', 'rgb(253, 87, 80)', [SkillTypes.Backend], faBoltLightning),
     createSkill('GitHub Actions', 'black', [SkillTypes.Other], faGithub),
     createSkill('Express.js', 'black', [SkillTypes.Backend], faServer),
     createSkill('Docker', 'rgb(13, 183, 237)', [SkillTypes.Backend, SkillTypes.Other], faDocker),
