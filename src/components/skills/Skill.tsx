@@ -12,17 +12,25 @@ const Skill: React.FC<{ label: string, color: string, type: SkillTypes[], icon: 
         <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
             <Box
                 sx={{
-                    border: ` 1px solid ${color}`,
+                    border: `2px solid ${color}`,
                     display: 'flex',
                     textAlign: 'center',
                     flexDirection: 'column',
                     alignItems: 'center',
                     padding: '2rem',
+                    transition: 'background-color 0.3s ease',
+                    '&:hover': {
+                        backgroundColor: color === 'black' ? 'black' : color,
+                        color: color === 'black' ? 'white' : 'black',
+                        '& svg': {
+                            color: color === 'black' ? 'white' : 'black',
+                        },
+                    },
                 }}
             >
                 {icon(color)}
                 <ResponsiveTypography 
-                    variant='body1'
+                    variant='body2'
                     sx={{ marginTop: '1rem' }}
                 >{label}</ResponsiveTypography>
             </Box>

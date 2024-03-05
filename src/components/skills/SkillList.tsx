@@ -25,22 +25,16 @@ const createSkill = (label: string, color: string, type: SkillTypes[], icon: Ico
 });
 
 export const SkillList: Skill[] = [
-    createSkill('Node.js', 'rgb(67, 133, 61)', [SkillTypes.Backend, SkillTypes.Frontend], faNodeJs),
     createSkill('TypeScript', '#3178c6', [SkillTypes.Backend, SkillTypes.Frontend], faJs),
+    createSkill('Node.js', 'rgb(67, 133, 61)', [SkillTypes.Backend, SkillTypes.Frontend], faNodeJs),
     createSkill('React', 'rgba(8, 126, 164, 0.8)', [SkillTypes.Frontend], faReact),
+    createSkill('Nest.js', '#ea2845', [SkillTypes.Backend], faServer),
     createSkill('AWS', 'rgb(255, 153, 0)', [SkillTypes.Backend], faAws),
+    createSkill('MongoDB', 'rgb(0, 237, 100)', [SkillTypes.Backend], faDatabase),
+    createSkill('PostgreSQL', 'rgb(105, 158, 202)', [SkillTypes.Backend], faDatabase),
     createSkill('Serverless', 'rgb(253, 87, 80)', [SkillTypes.Backend], faServer),
     createSkill('GitHub Actions', 'black', [SkillTypes.Other], faGithub),
+    createSkill('Express.js', 'black', [SkillTypes.Backend], faServer),
     createSkill('Docker', 'rgb(13, 183, 237)', [SkillTypes.Backend, SkillTypes.Other], faDocker),
     createSkill('Python', '#3776ab', [SkillTypes.Backend], faPython),
-    createSkill('C++', 'blue', [SkillTypes.Backend], faCode),
-    createSkill('Next.js', 'black', [SkillTypes.Frontend], faCode),
-    createSkill('PostgreSQL', 'rgb(105, 158, 202)', [SkillTypes.Backend], faDatabase),
-    createSkill('MongoDB', 'rgb(0, 237, 100)', [SkillTypes.Backend], faDatabase),
-    createSkill('GraphQL', 'rgb(229, 53, 171)', [SkillTypes.Backend], faVectorSquare),
-    createSkill('Jest.js', 'rgb(21, 194, 19)', [SkillTypes.Frontend, SkillTypes.Backend], faVial),
-    createSkill('DataDog', 'rgb(99, 44, 166)', [SkillTypes.Other, SkillTypes.Backend], faDog),
-    createSkill('Jira', '#0052CC', [SkillTypes.Other], faJira),
-    createSkill('Nest.js', '#ea2845', [SkillTypes.Backend], faServer),
-    createSkill('Express.js', '#010101', [SkillTypes.Backend], faServer),
 ];

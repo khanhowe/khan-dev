@@ -14,9 +14,7 @@ const NavBar: React.FC = () => {
     
     const sections: string[] = useMemo(() => [
         'About',
-        'Skills',
-        'Experience',
-        'Education',
+        'Background',
         'Projects'
     ], []);
 

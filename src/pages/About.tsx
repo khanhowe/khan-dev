@@ -48,7 +48,7 @@ const AboutSection: React.FC = () => {
                 variant="body1"
                 sx={{ marginTop: '1rem' }}
             >
-                With 6+ years working in the tech industry and 10+ years writing code, I have experience in both front-end and back-end development.
+                With 6+ years working in the tech industry and 10+ years writing code, I excell in both front-end and back-end development.
             </ResponsiveTypography>
             <ResponsiveTypography 
                 variant="body1"
@@ -64,26 +64,32 @@ const About: React.FC  = () => {
     const isVisible = useFadeInEffect();
     return (
         <Page>
-            <div id='About'>
-                <div className={`about ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                    <CenteredIntro/>
+            <div className={`about ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                <CenteredIntro/>
+                <div id='About'>
                     <AboutSection/>
-                    <Grid container spacing={2}>
-                        {SkillList.map((skill) => (
-                            <Skill
-                                key={skill.label} 
-                                label={skill.label}
-                                color={skill.color}
-                                type={skill.type}
-                                icon={skill.icon}
-                            />
-                        ))}
-                        {/* <Skill label='React' color='blue' type={SkillTypes.Frontend}/> */}
-                    </Grid>
+                    <Box
+                        sx={{ marginTop: '2rem' }}
+                    >
+                        <ResponsiveTypography variant="h2">
+                            Skills and Technologies <hr/>
+                        </ResponsiveTypography>
+                        <ResponsiveTypography variant="body1">
+                            Here are some of the technologies and tools I have the most experience with:
+                        </ResponsiveTypography>
+                        <Grid container spacing={1} sx={{ marginTop: '2rem' }}>
+                            {SkillList.map((skill) => (
+                                <Skill
+                                    key={skill.label} 
+                                    label={skill.label}
+                                    color={skill.color}
+                                    type={skill.type}
+                                    icon={skill.icon}
+                                />
+                            ))}
+                        </Grid>
+                    </Box>
                 </div>
-            </div>
-            <div id='Skills'>
-                <SectionTitle title='Technologies and Languages'/>
             </div>
         </Page>
     );
