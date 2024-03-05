@@ -13,6 +13,7 @@ const Skill: React.FC<{ label: string, color: string, type: SkillTypes[], icon: 
             <Box
                 sx={{
                     border: `2px solid ${color}`,
+                    borderRadius: '10px',
                     display: 'flex',
                     textAlign: 'center',
                     flexDirection: 'column',

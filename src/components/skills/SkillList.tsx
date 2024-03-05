@@ -21,7 +21,7 @@ const createSkill = (label: string, color: string, type: SkillTypes[], icon: Ico
     label,
     color,
     type,
-    icon: (color) => <FontAwesomeIcon icon={icon} color={color} size='2x'/>
+    icon: (color) => <FontAwesomeIcon icon={icon} color={color} size='3x'/>
 });
 
 export const SkillList: Skill[] = [

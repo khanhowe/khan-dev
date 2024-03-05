@@ -69,7 +69,7 @@ const About: React.FC  = () => {
                 <div id='About'>
                     <AboutSection/>
                     <Box
-                        sx={{ marginTop: '2rem' }}
+                        sx={{ marginTop: '4rem' }}
                     >
                         <ResponsiveTypography variant="h2">
                             Skills and Technologies <hr/>
@@ -77,7 +77,11 @@ const About: React.FC  = () => {
                         <ResponsiveTypography variant="body1">
                             Here are some of the technologies and tools I have the most experience with:
                         </ResponsiveTypography>
-                        <Grid container spacing={1} sx={{ marginTop: '2rem' }}>
+                        <Grid 
+                            container
+                            justifyContent='center'
+                            spacing={1}
+                            sx={{ marginTop: '2rem' }}>
                             {SkillList.map((skill) => (
                                 <Skill
                                     key={skill.label} 
