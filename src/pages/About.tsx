@@ -4,10 +4,11 @@ import '../styles/About.scss';
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import SectionTitle from "../components/SectionTitle";
 import React from "react";
-import SkillList from "../components/skills/SkillList";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import ResponsiveTypography from "../components/ResponsiveText";
-// import ProfilePicture from "../components/ProfilePicture";
+import Skill from "../components/skills/Skill";
+import ProfilePicture from "../components/ProfilePicture";
+import { SkillList } from "../components/skills/SkillList";
 
 
 
@@ -23,13 +24,13 @@ const CenteredIntro: React.FC = () => {
                 height: '100vh',
             }}
         >
+            <ProfilePicture/>
             <ResponsiveTypography variant="h1">
                 Hi there, I'm Khan.
             </ResponsiveTypography>
             <ResponsiveTypography variant="h2">
                 A Software Engineer ↓
             </ResponsiveTypography>
-            {/* <ProfilePicture/> */}
         </Box>
     );
 };
@@ -59,7 +60,6 @@ const AboutSection: React.FC = () => {
     );
 };
 
-
 const About: React.FC  = () => {
     const isVisible = useFadeInEffect();
     return (
@@ -68,11 +68,22 @@ const About: React.FC  = () => {
                 <div className={`about ${isVisible ? 'fade-in' : 'fade-out'}`}>
                     <CenteredIntro/>
                     <AboutSection/>
+                    <Grid container spacing={2}>
+                        {SkillList.map((skill) => (
+                            <Skill
+                                key={skill.label} 
+                                label={skill.label}
+                                color={skill.color}
+                                type={skill.type}
+                                icon={skill.icon}
+                            />
+                        ))}
+                        {/* <Skill label='React' color='blue' type={SkillTypes.Frontend}/> */}
+                    </Grid>
                 </div>
             </div>
             <div id='Skills'>
                 <SectionTitle title='Technologies and Languages'/>
-                <SkillList/>
             </div>
         </Page>
     );

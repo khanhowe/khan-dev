@@ -1,43 +1,46 @@
-import { Skill, SkillTypes, skills } from "./skills";
-import { useEffect, useState } from "react";
-import SkillChip from "./SkillChip";
-import SkillSelectButton from "./SkillSelectButton";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { faAws, faDocker, faGithub, faJira, faJs, faNodeJs, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faCode, faDatabase, faDog, faServer, faVectorSquare, faVial } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SkillList: React.FC = () => {
-    const [selectedSkillType, setSelectedSkillType] = useState<SkillTypes>(SkillTypes.All);
-    const [skillList, setSkillList] = useState<Skill[]>(skills);
-
-    const handleSkillTypeClick = (skillType: SkillTypes) => {
-        setSelectedSkillType(skillType);
-    };
-
-    useEffect(() => {
-        const selectedSkills = skills.filter((skill) => {
-            if (selectedSkillType === SkillTypes.All) {
-                return true;
-            }
-            return skill.type.includes(selectedSkillType);
-        });
-        setSkillList(selectedSkills);
-
-    }, [selectedSkillType, setSkillList]);
-
-    return (
-        <div className='skills'>
-            <div>
-                {Object.values(SkillTypes).map((skillType, index) => (
-                    <SkillSelectButton
-                        key={index}
-                        label={skillType}
-                        onClick={() => handleSkillTypeClick(skillType)}
-                    />
-                ))}
-            </div>
-            <div className='skill-chip-list'>
-                {skillList.map((skill, index) => <SkillChip key={index} label={skill.label} color={skill.color}/>)}
-            </div>
-        </div>
-    );
+export enum SkillTypes {
+    All = 'All',
+    Backend = 'Backend',
+    Frontend = 'Frontend',
+    Other = 'Other'
 }
 
-export default SkillList;
+export interface Skill {
+    label: string;
+    color: string;
+    type: SkillTypes[];
+    icon: (color: string) => JSX.Element;
+}
+
+const createSkill = (label: string, color: string, type: SkillTypes[], icon: IconDefinition): Skill => ({
+    label,
+    color,
+    type,
+    icon: (color) => <FontAwesomeIcon icon={icon} color={color} size='2x'/>
+});
+
+export const SkillList: Skill[] = [
+    createSkill('Node.js', 'rgb(67, 133, 61)', [SkillTypes.Backend, SkillTypes.Frontend], faNodeJs),
+    createSkill('TypeScript', '#3178c6', [SkillTypes.Backend, SkillTypes.Frontend], faJs),
+    createSkill('React', 'rgba(8, 126, 164, 0.8)', [SkillTypes.Frontend], faReact),
+    createSkill('AWS', 'rgb(255, 153, 0)', [SkillTypes.Backend], faAws),
+    createSkill('Serverless', 'rgb(253, 87, 80)', [SkillTypes.Backend], faServer),
+    createSkill('GitHub Actions', 'black', [SkillTypes.Other], faGithub),
+    createSkill('Docker', 'rgb(13, 183, 237)', [SkillTypes.Backend, SkillTypes.Other], faDocker),
+    createSkill('Python', '#3776ab', [SkillTypes.Backend], faPython),
+    createSkill('C++', 'blue', [SkillTypes.Backend], faCode),
+    createSkill('Next.js', 'black', [SkillTypes.Frontend], faCode),
+    createSkill('PostgreSQL', 'rgb(105, 158, 202)', [SkillTypes.Backend], faDatabase),
+    createSkill('MongoDB', 'rgb(0, 237, 100)', [SkillTypes.Backend], faDatabase),
+    createSkill('GraphQL', 'rgb(229, 53, 171)', [SkillTypes.Backend], faVectorSquare),
+    createSkill('Jest.js', 'rgb(21, 194, 19)', [SkillTypes.Frontend, SkillTypes.Backend], faVial),
+    createSkill('DataDog', 'rgb(99, 44, 166)', [SkillTypes.Other, SkillTypes.Backend], faDog),
+    createSkill('Jira', '#0052CC', [SkillTypes.Other], faJira),
+    createSkill('Nest.js', '#ea2845', [SkillTypes.Backend], faServer),
+    createSkill('Express.js', '#010101', [SkillTypes.Backend], faServer),
+];

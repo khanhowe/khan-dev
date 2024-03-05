@@ -123,7 +123,7 @@ const NavBar: React.FC = () => {
 
 
     return (
-        <AppBar position='fixed'>
+        <AppBar position='fixed' sx={{ backgroundColor: 'black' }}>
             <Container maxWidth='xl' className='navbar'>
                 <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
                     <MobileMenu scrollToSection={scrollToSection} sections={sections}/>
