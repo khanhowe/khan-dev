@@ -29,7 +29,10 @@ const CenteredIntro: React.FC = () => {
                 Hi there, I'm<span style={{ backgroundColor: 'rgb(255, 2, 3, 0.2)' }}> Khan.</span>
             </ResponsiveTypography>
             <ResponsiveTypography variant="h2">
-                A Software Engineer ↓
+                A Full Stack Engineer
+            </ResponsiveTypography>
+            <ResponsiveTypography variant="body1">
+                Download my <a href="/KhanhNguyenResume.pdf" download>resume</a> or learn more about me. ↓
             </ResponsiveTypography>
         </Box>
     );
