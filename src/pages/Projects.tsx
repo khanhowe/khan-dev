@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
@@ -57,9 +57,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
     return (
-        <div id='Projects'>
+        <Box 
+            id='Projects'
+            sx={{ marginTop: '4rem' }}
+        >
+            <SectionTitle title='Projects'/>
             <Page>
-                <SectionTitle title='Projects'/>
                 <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
                     <div>
                         <Grid container spacing={1}>
@@ -75,7 +78,7 @@ const Projects: React.FC = () => {
                     </div>
                 </div>
             </Page>
-        </div>
+        </Box>
     );
 };
 

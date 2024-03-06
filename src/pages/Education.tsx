@@ -11,7 +11,7 @@ const Eductation: React.FC = () => {
                 title='B.S. Computational Physics'
                 company='University of Alaska Fairbanks'
                 dateRange=''
-                description='Graduated with honors. ✅'
+                description='Graduated, studying both Physics and Computer Science'
                 bulletPoints={[
                     'Minor in Mathematics',
                     'Data Structures and Algorithms'
