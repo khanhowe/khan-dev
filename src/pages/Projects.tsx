@@ -3,7 +3,6 @@ import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
 import '../styles/Projects.css';
-import { useIsSmScreen } from "../hooks/useScreenSize";
 import SectionTitle from "../components/SectionTitle";
 
 interface ProjectCardProps {

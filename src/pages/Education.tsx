@@ -5,7 +5,7 @@ import SectionTitle from "../components/SectionTitle";
 
 const Eductation: React.FC = () => {
     return (
-        <div className='education' id='Education'>
+        <div className='education' id='Education' style={{marginTop: '4rem'}}>
             <SectionTitle title='Education'/>
             <ExperienceSection 
                 title='B.S. Computational Physics'

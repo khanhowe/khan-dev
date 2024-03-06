@@ -26,7 +26,7 @@ const CenteredIntro: React.FC = () => {
         >
             <ProfilePicture/>
             <ResponsiveTypography variant="h1">
-                Hi there, I'm Khan.
+                Hi there, I'm<span style={{ backgroundColor: 'rgb(255, 2, 3, 0.2)' }}> Khan.</span>
             </ResponsiveTypography>
             <ResponsiveTypography variant="h2">
                 A Software Engineer ↓

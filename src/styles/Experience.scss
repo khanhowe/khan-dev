@@ -5,31 +5,6 @@
     width: 100%;
 }
 
-.experience-section {
-    padding-bottom: 50px;
-    @include media-query($tablet-breakpoint) {
-        padding: 20px;
-    }
-}
-
-.experience-header {
-    display: flex;
-    flex-direction: column;
-    @include media-query($tablet-breakpoint) {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-.experience-info {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    @include media-query($tablet-breakpoint) {
-        margin-top: 10px;
-    }
-}
 
 .experience-text-div {
     display: flex;

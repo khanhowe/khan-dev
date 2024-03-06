@@ -1,5 +1,5 @@
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faAws, faDocker, faGithub, faJs, faNodeJs, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faAws, faDocker, faGithub, faJs, faNode, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
 import { faBoltLightning, faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -26,7 +26,7 @@ const createSkill = (label: string, color: string, type: SkillTypes[], icon: Ico
 
 export const SkillList: Skill[] = [
     createSkill('TypeScript', '#3178c6', [SkillTypes.Backend, SkillTypes.Frontend], faJs),
-    createSkill('Node.js', 'rgb(67, 133, 61)', [SkillTypes.Backend, SkillTypes.Frontend], faNodeJs),
+    createSkill('Node.js', 'rgb(67, 133, 61)', [SkillTypes.Backend, SkillTypes.Frontend], faNode),
     createSkill('React', 'rgba(8, 126, 164, 0.8)', [SkillTypes.Frontend], faReact),
     createSkill('Nest.js', '#ea2845', [SkillTypes.Backend], faServer),
     createSkill('AWS', 'rgb(255, 153, 0)', [SkillTypes.Backend], faAws),

@@ -21,18 +21,18 @@ const fontSizeMap = {
         xl: '3.2rem',
     },
     body1: {
-        xs: '1.6rem',
-        sm: '1.6rem',
-        md: '1.8rem',
-        lg: '2rem',
-        xl: '2.2rem',
+        xs: '1.2rem',
+        sm: '1.2rem',
+        md: '1.3rem',
+        lg: '1.5rem',
+        xl: '1.7rem',
     },
     body2: {
-        xs: '1.4rem',
-        sm: '1.4rem',
-        md: '1.6rem',
-        lg: '1.8rem',
-        xl: '2rem',
+        xs: '1rem',
+        sm: '1rem',
+        md: '1.1rem',
+        lg: '1.3rem',
+        xl: '1.5rem',
     },
 };
 
