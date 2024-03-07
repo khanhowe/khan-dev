@@ -1,4 +1,4 @@
-import { Typography, TypographyProps, SxProps, Theme } from "@mui/material";
+import { Typography, TypographyProps, SxProps, Theme } from '@mui/material';
 
 interface CustomTypographyProps extends TypographyProps {
     sx?: SxProps<Theme>;
@@ -50,7 +50,11 @@ const fontSizeMap = {
     },
 };
 
-const ResponsiveTypography: React.FC<CustomTypographyProps> = ({ sx, variant, ...props }) => (
+const ResponsiveTypography: React.FC<CustomTypographyProps> = ({
+    sx,
+    variant,
+    ...props
+}) => (
     <Typography
         {...props}
         variant={variant}
