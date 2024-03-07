@@ -2,7 +2,7 @@ import { Typography, TypographyProps, SxProps, Theme } from '@mui/material';
 
 interface CustomTypographyProps extends TypographyProps {
     sx?: SxProps<Theme>;
-    variant: 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2';
+    variant: 'h1' | 'h2' | 'h3' | 'h4' | 'body1' | 'body2' | 'subtitle1';
 }
 
 const fontSizeMap = {
@@ -47,6 +47,13 @@ const fontSizeMap = {
         md: '1.1rem',
         lg: '1.3rem',
         xl: '1.5rem',
+    },
+    subtitle1: {
+        xs: '1rem',
+        sm: '1rem',
+        md: '1rem',
+        lg: '1rem',
+        xl: '1.2rem',
     },
 };
 

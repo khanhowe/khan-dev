@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/NavBar.css';
 import React, { useMemo, useRef, useState } from 'react';
 import ResponsiveTypography from './ResponsiveText';
+import { ContactButton, ContactMenuItem, contactItems } from './Contact';
 
 interface MenuProps {
     scrollToSection: (section: string) => void;
@@ -94,6 +95,13 @@ const NavBar: React.FC = () => {
                         </ResponsiveTypography>
                     </MenuItem>
                 ))}
+                {contactItems.map((item, index) => (
+                    <ContactMenuItem
+                        key={index}
+                        icon={item.icon}
+                        link={item.link}
+                    />
+                ))}
             </Menu>
         </div>
     );
@@ -114,13 +122,23 @@ const NavBar: React.FC = () => {
         </Box>
     );
 
+    const VerticalRule: React.FC = () => (
+        <div
+            style={{
+                borderLeft: '1px solid white',
+                height: '20px',
+                marginLeft: '10px',
+                marginRight: '10px',
+            }}
+        />
+    );
+
     const DesktopMenu: React.FC<MenuProps> = ({
         scrollToSection,
         sections,
     }) => (
         <Box
             sx={{
-                flexGrow: 1,
                 display: { xs: 'none', md: 'flex' },
                 justifyContent: 'flex-end',
                 alignItems: 'center',
@@ -134,6 +152,10 @@ const NavBar: React.FC = () => {
                 >
                     {section}
                 </Button>
+            ))}
+            <VerticalRule />
+            {contactItems.map((item, index) => (
+                <ContactButton key={index} icon={item.icon} link={item.link} />
             ))}
         </Box>
     );

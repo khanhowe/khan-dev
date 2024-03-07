@@ -1,5 +1,4 @@
 import React from 'react';
-import Contact from '../pages/Contact';
 import '../styles/App.css';
 import ResponsiveTypography from './ResponsiveText';
 
@@ -8,8 +7,8 @@ const Footer: React.FC = () => {
     const currentYear = currentDate.getFullYear();
     return (
         <footer className="footer">
-            <Contact />
-            <ResponsiveTypography variant="body2">{`©${currentYear} Khan Howe`}</ResponsiveTypography>
+            <hr style={{ minWidth: '200px' }} />
+            <ResponsiveTypography variant="subtitle1">{`©${currentYear} Khan Howe`}</ResponsiveTypography>
         </footer>
     );
 };
