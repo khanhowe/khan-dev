@@ -107,7 +107,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     {year}
                 </ResponsiveTypography>
             </Box>
-            {icons?.map((icon) => icon)}
+            <Box
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'right',
+                    alignItems: 'center',
+                }}
+            >
+                {icons?.map((icon) => icon)}
+            </Box>
             <ResponsiveTypography variant="body2">
                 {description}
             </ResponsiveTypography>
