@@ -2,15 +2,15 @@ import { Box } from '@mui/material';
 
 const imageSizeMap = {
     width: {
-        xs: '200px',
-        sm: '250px',
+        xs: '300px',
+        sm: '300px',
         md: '300px',
         lg: '350px',
         xl: '400px',
     },
     height: {
-        xs: '200px',
-        sm: '250px',
+        xs: '300px',
+        sm: '300px',
         md: '300px',
         lg: '350px',
         xl: '400px',
@@ -33,7 +33,7 @@ const ProfilePicture: React.FC = () => (
         }}
     >
         <img
-            src="/khanhowe-pic.jpeg"
+            src="https://avatars.githubusercontent.com/u/12534401?v=4"
             alt="khan-howe"
             style={{
                 width: '100%',

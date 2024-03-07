@@ -79,7 +79,6 @@ const NavBar: React.FC = () => {
                 anchor="right"
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                // Add transition effect to the Drawer
                 transitionDuration={500}
             >
                 <Box
@@ -98,9 +97,19 @@ const NavBar: React.FC = () => {
                         </ListItem>
                     ))}
                     {contactItems.map((item, index) => (
-                        <ListItem button key={index} href={item.link}>
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.title} />
+                        <ListItem button key={index}>
+                            <a
+                                href={item.link}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <ListItemIcon>{item.icon}</ListItemIcon>
+                                <ListItemText primary={item.title} />
+                            </a>
                         </ListItem>
                     ))}
                 </Box>
