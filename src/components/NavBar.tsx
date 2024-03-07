@@ -3,9 +3,11 @@ import {
     Box,
     Button,
     Container,
+    Drawer,
     IconButton,
-    Menu,
-    MenuItem,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
     Toolbar,
 } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
@@ -13,19 +15,28 @@ import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/NavBar.css';
 import React, { useMemo, useRef, useState } from 'react';
 import ResponsiveTypography from './ResponsiveText';
-import { ContactButton, ContactMenuItem, contactItems } from './Contact';
+import { ContactButton, contactItems } from './Contact';
+import { Person, WorkHistory } from '@mui/icons-material';
 
+interface SectionProps {
+    name: string;
+    icon: JSX.Element;
+}
 interface MenuProps {
     scrollToSection: (section: string) => void;
-    sections: string[];
+    sections: SectionProps[];
 }
 
 const NavBar: React.FC = () => {
     const anchorRef = useRef(null);
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
-    const sections: string[] = useMemo(
-        () => ['About', 'Background', 'Projects'],
+    const sections: SectionProps[] = useMemo(
+        () => [
+            { name: 'About', icon: <Person /> },
+            { name: 'Background', icon: <WorkHistory /> },
+            { name: 'Projects', icon: <CodeIcon /> },
+        ],
         [],
     );
 
@@ -64,45 +75,36 @@ const NavBar: React.FC = () => {
             >
                 <MenuIcon />
             </IconButton>
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
+            <Drawer
+                anchor="right"
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                    display: { xs: 'block', md: 'none' },
-                }}
+                // Add transition effect to the Drawer
+                transitionDuration={500}
             >
-                {sections.map((section) => (
-                    <MenuItem
-                        key={section}
-                        onClick={() => {
-                            scrollToSection(section);
-                            handleCloseNavMenu();
-                        }}
-                    >
-                        <ResponsiveTypography variant="body1">
-                            {section}
-                        </ResponsiveTypography>
-                    </MenuItem>
-                ))}
-                {contactItems.map((item, index) => (
-                    <ContactMenuItem
-                        key={index}
-                        icon={item.icon}
-                        link={item.link}
-                    />
-                ))}
-            </Menu>
+                <Box
+                    sx={{ width: 250 }}
+                    role="presentation"
+                    onClick={handleCloseNavMenu}
+                    onKeyDown={handleCloseNavMenu}
+                >
+                    {sections.map((section) => (
+                        <ListItem
+                            key={section.name}
+                            onClick={() => scrollToSection(section.name)}
+                        >
+                            <ListItemIcon>{section.icon}</ListItemIcon>
+                            <ListItemText primary={section.name} />
+                        </ListItem>
+                    ))}
+                    {contactItems.map((item, index) => (
+                        <ListItem button key={index} href={item.link}>
+                            <ListItemIcon>{item.icon}</ListItemIcon>
+                            <ListItemText primary={item.title} />
+                        </ListItem>
+                    ))}
+                </Box>
+            </Drawer>
         </div>
     );
 
@@ -146,11 +148,11 @@ const NavBar: React.FC = () => {
         >
             {sections.map((section) => (
                 <Button
-                    key={section}
-                    onClick={() => scrollToSection(section)}
+                    key={section.name}
+                    onClick={() => scrollToSection(section.name)}
                     sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                    {section}
+                    {section.name}
                 </Button>
             ))}
             <VerticalRule />

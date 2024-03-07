@@ -5,6 +5,7 @@ import ResponsiveTypography from './ResponsiveText';
 interface ContactItem {
     icon: JSX.Element;
     link: string;
+    title: string;
 }
 
 interface ContactButtonProps {
@@ -16,14 +17,17 @@ const contactItems: ContactItem[] = [
     {
         icon: <GitHub />,
         link: 'https://github.com/khanhowe',
+        title: 'GitHub',
     },
     {
         icon: <LinkedIn />,
         link: 'https://www.linkedin.com/in/khan-howe-5a1055163/',
+        title: 'LinkedIn',
     },
     {
         icon: <Email />,
         link: 'mailto:khanhowe@gmail.com',
+        title: 'Email',
     },
 ];
 
