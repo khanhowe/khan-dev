@@ -3,6 +3,7 @@ import {
     Box,
     Button,
     Container,
+    Divider,
     Drawer,
     IconButton,
     ListItem,
@@ -96,6 +97,7 @@ const NavBar: React.FC = () => {
                             <ListItemText primary={section.name} />
                         </ListItem>
                     ))}
+                    <Divider />
                     {contactItems.map((item, index) => (
                         <ListItem button key={index}>
                             <a
