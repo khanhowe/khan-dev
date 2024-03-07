@@ -27,7 +27,7 @@ const projects: ProjectCardProps[] = [
         year: 2023,
         icons: [
             createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
-            createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
+            createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
         ]
     },
     {
@@ -87,14 +87,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, url, repo
                     alignItems: 'center'
                 }}
             >
-                <Link href={url} underline='none'>
+                <Link href={url}>
                     <ResponsiveTypography variant="body1" gutterBottom><b>{title}</b></ResponsiveTypography>
                 </Link>
                 <ResponsiveTypography variant="body2">{year}</ResponsiveTypography>
             </Box>
                 {icons?.map((icon) => icon)}
-                <Typography variant='subtitle1'>{description}</Typography>
-                {repoUrl && <Typography className='github-link'><a href={repoUrl}>GitHub</a></Typography>}
+                <ResponsiveTypography variant='body2'>{description}</ResponsiveTypography>
+                {repoUrl && <Link href={repoUrl}>
+                    <ResponsiveTypography variant='body2'>
+                        GitHub
+                    </ResponsiveTypography>
+                </Link>}
         </Box>
     )
 }
