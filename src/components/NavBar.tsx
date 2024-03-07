@@ -7,7 +7,6 @@ import {
     Menu,
     MenuItem,
     Toolbar,
-    Typography,
 } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -45,7 +44,7 @@ const NavBar: React.FC = () => {
         }
     };
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    const handleOpenNavMenu = () => {
         setAnchorElNav(anchorRef.current);
     };
     const handleCloseNavMenu = () => {

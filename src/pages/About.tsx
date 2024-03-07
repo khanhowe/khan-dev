@@ -24,7 +24,7 @@ const CenteredIntro: React.FC = () => {
         >
             <ProfilePicture />
             <ResponsiveTypography variant="h1">
-                Hi there, I'm
+                Hi there, I&apos;m
                 <span style={{ backgroundColor: 'rgb(255, 2, 3, 0.2)' }}>
                     {' '}
                     Khan.
