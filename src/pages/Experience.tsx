@@ -3,9 +3,8 @@ import '../styles/Experience.scss';
 import SectionTitle from "../components/SectionTitle";
 import ResponsiveTypography from "../components/ResponsiveText";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition, faAws, faJs, faNode, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { IconDefinition, faAws, faNode, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
 import { faBoltLightning, faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
-import { create } from "domain";
 
 interface ExperienceItem {
     title: string;
@@ -16,7 +15,7 @@ interface ExperienceItem {
     icons?: JSX.Element[];
 }
 
-const createStackIcon = (label: string, color: string, icon: IconDefinition) => (
+export const createStackIcon = (label: string, color: string, icon: IconDefinition) => (
     <Tooltip title={label}>
         <FontAwesomeIcon icon={icon} color={color} size='2x' style={{ padding: '8px'}}/>
     </Tooltip>
