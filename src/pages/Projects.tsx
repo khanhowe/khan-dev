@@ -1,4 +1,4 @@
-import { Box, Grid, Link, Typography } from '@mui/material';
+import { Box, Grid, Link } from '@mui/material';
 import Page from '../components/Page';
 import useFadeInEffect from '../hooks/useFadeInEffect';
 import '../styles/App.css';

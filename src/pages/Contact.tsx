@@ -38,7 +38,9 @@ const Contact: React.FC = () => {
     return (
         <div className="contact">
             {links.map(({ children, url }, index) => (
-                <ContactLink children={children} url={url} key={index} />
+                <ContactLink url={url} key={index}>
+                    {children}
+                </ContactLink>
             ))}
         </div>
     );
