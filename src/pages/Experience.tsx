@@ -1,10 +1,20 @@
-import { Box, Tooltip } from "@mui/material";
+import { Box, Tooltip } from '@mui/material';
 import '../styles/Experience.scss';
-import SectionTitle from "../components/SectionTitle";
-import ResponsiveTypography from "../components/ResponsiveText";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition, faAws, faNode, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
-import { faBoltLightning, faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
+import SectionTitle from '../components/SectionTitle';
+import ResponsiveTypography from '../components/ResponsiveText';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    IconDefinition,
+    faAws,
+    faNode,
+    faPython,
+    faReact,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+    faBoltLightning,
+    faDatabase,
+    faServer,
+} from '@fortawesome/free-solid-svg-icons';
 
 interface ExperienceItem {
     title: string;
@@ -15,9 +25,18 @@ interface ExperienceItem {
     icons?: JSX.Element[];
 }
 
-export const createStackIcon = (label: string, color: string, icon: IconDefinition) => (
+export const createStackIcon = (
+    label: string,
+    color: string,
+    icon: IconDefinition,
+) => (
     <Tooltip title={label}>
-        <FontAwesomeIcon icon={icon} color={color} size='2x' style={{ padding: '8px'}}/>
+        <FontAwesomeIcon
+            icon={icon}
+            color={color}
+            size="2x"
+            style={{ padding: '8px' }}
+        />
     </Tooltip>
 );
 
@@ -26,14 +45,15 @@ const experienceList: ExperienceItem[] = [
         title: 'Full-Stack Engineer',
         company: 'Class Technologies Inc.',
         dateRange: 'January 2021 - May 2023',
-        description: 'Led both frontend and backend development for a fast-paced conferencing ed-tech company.',
+        description:
+            'Led both frontend and backend development for a fast-paced conferencing ed-tech company.',
         bulletPoints: [
             'Designed and implemented TypeScript API endpoints hosted on AWS Lambda via the Serverless framework.',
             'Refactored and optimized mountains of legacy code.',
             'Efficiently managed PostgreSQL databases.',
             'Contributed to application integrations, front-end localization, and punctual deployments to production.',
             'In leadership roles, I led daily stand-ups, participated in hiring processes, and mentored new developers.',
-            'Excelled at adaptability and my commitment to project success.'
+            'Excelled at adaptability and my commitment to project success.',
         ],
         icons: [
             createStackIcon('PostgreSQL', 'rgb(105, 158, 202)', faDatabase),
@@ -47,12 +67,13 @@ const experienceList: ExperienceItem[] = [
         title: 'Full-Stack Engineer',
         company: 'Attently Inc.',
         dateRange: 'June 2018 - April 2020',
-        description: 'Designed, developed, and delivered computer vision web applications using data science metrics.',
+        description:
+            'Designed, developed, and delivered computer vision web applications using data science metrics.',
         bulletPoints: [
             'Implemented AWS services like Kinesis, Rekognition, DynamoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data.',
             'Collaborated closely with cross-functional teams to build React web plugins, elevating the functionality of our web applications.',
             'Built fundamental video conferencing applications using WebRTC technology.',
-            'Thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots in an early startup environment.'
+            'Thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots in an early startup environment.',
         ],
         icons: [
             createStackIcon('DynamoDB', 'rgb(255, 153, 0)', faAws),
@@ -64,9 +85,13 @@ const experienceList: ExperienceItem[] = [
     },
 ];
 
-
-
-export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, description, icons }) => {
+export const ExperienceSection: React.FC<ExperienceItem> = ({
+    title,
+    company,
+    dateRange,
+    description,
+    icons,
+}) => {
     return (
         <Box
             sx={{
@@ -77,31 +102,39 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
                 transition: 'box-shadow 0.3s ease',
                 '&:hover': {
                     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.5)',
-                }
+                },
             }}
         >
             <Box>
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                }}>
-                    <ResponsiveTypography variant="body1"><b>{company}</b></ResponsiveTypography>
-                    <ResponsiveTypography variant="body2">{dateRange}</ResponsiveTypography>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}
+                >
+                    <ResponsiveTypography variant="body1">
+                        <b>{company}</b>
+                    </ResponsiveTypography>
+                    <ResponsiveTypography variant="body2">
+                        {dateRange}
+                    </ResponsiveTypography>
                 </Box>
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                }}>
-                    <ResponsiveTypography variant='body2'>{title}</ResponsiveTypography>
-                    <Box>
-                        {icons?.map((icon) => icon)}
-                    </Box>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}
+                >
+                    <ResponsiveTypography variant="body2">
+                        {title}
+                    </ResponsiveTypography>
+                    <Box>{icons?.map((icon) => icon)}</Box>
                 </Box>
             </Box>
             <hr />
-            <div className='experience-text-div'>
+            <div className="experience-text-div">
                 <ResponsiveTypography variant="body2">
                     {description}
                 </ResponsiveTypography>
@@ -112,21 +145,23 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, da
 
 const Experience: React.FC = () => {
     return (
-        <div style={{ marginTop: '4rem'}}>
-            <SectionTitle title="Professional Experience"/>
-            <div className='card-list' id='Experience'>
-                {experienceList.map((item, index) => <ExperienceSection 
-                    key={index} 
-                    title={item.title}
-                    company={item.company}
-                    dateRange={item.dateRange}
-                    description={item.description}
-                    bulletPoints={item.bulletPoints}
-                    icons={item.icons}
-                />)}
+        <div style={{ marginTop: '4rem' }}>
+            <SectionTitle title="Professional Experience" />
+            <div className="card-list" id="Experience">
+                {experienceList.map((item, index) => (
+                    <ExperienceSection
+                        key={index}
+                        title={item.title}
+                        company={item.company}
+                        dateRange={item.dateRange}
+                        description={item.description}
+                        bulletPoints={item.bulletPoints}
+                        icons={item.icons}
+                    />
+                ))}
             </div>
         </div>
     );
-}
+};
 
 export default Experience;

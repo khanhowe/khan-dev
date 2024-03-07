@@ -1,5 +1,5 @@
 @mixin media-query($breakpoint) {
-  @media only screen and (max-width: $breakpoint) {
-    @content;
-  }
+    @media only screen and (max-width: $breakpoint) {
+        @content;
+    }
 }

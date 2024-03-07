@@ -1,5 +1,5 @@
 import { LinkedIn, GitHub, Email } from '@mui/icons-material';
-import '../styles/Contact.css'
+import '../styles/Contact.css';
 import { ReactNode } from 'react';
 
 interface ContactLinkProps {
@@ -7,11 +7,14 @@ interface ContactLinkProps {
     url: string;
 }
 
-
-
 const ContactLink: React.FC<ContactLinkProps> = ({ children, url }) => {
     return (
-        <a className='contact-icon' href={url} target="_blank" rel="noopener noreferrer">
+        <a
+            className="contact-icon"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
             {children}
         </a>
     );
@@ -20,22 +23,22 @@ const ContactLink: React.FC<ContactLinkProps> = ({ children, url }) => {
 const Contact: React.FC = () => {
     const links: ContactLinkProps[] = [
         {
-            children: <LinkedIn/>,
-            url: 'https://www.linkedin.com/in/khan-howe-5a1055163/'
+            children: <LinkedIn />,
+            url: 'https://www.linkedin.com/in/khan-howe-5a1055163/',
         },
         {
-            children: <GitHub/>,
-            url: 'https://github.com/khanhowe'
+            children: <GitHub />,
+            url: 'https://github.com/khanhowe',
         },
         {
-            children: <Email/>,
-            url: 'mailto:khanhowe@gmail.com'
-        }
+            children: <Email />,
+            url: 'mailto:khanhowe@gmail.com',
+        },
     ];
     return (
-        <div className='contact'>
-            {links.map(({children, url}, index) => (
-                <ContactLink children={children} url={url} key={index}/>
+        <div className="contact">
+            {links.map(({ children, url }, index) => (
+                <ContactLink children={children} url={url} key={index} />
             ))}
         </div>
     );

@@ -5,12 +5,12 @@ import ResponsiveTypography from './ResponsiveText';
 
 const Footer: React.FC = () => {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear()
+    const currentYear = currentDate.getFullYear();
     return (
-    <footer className="footer">
-        <Contact/>
-        <ResponsiveTypography variant='body2'>{`©${currentYear} Khan Howe`}</ResponsiveTypography>
-    </footer>
+        <footer className="footer">
+            <Contact />
+            <ResponsiveTypography variant="body2">{`©${currentYear} Khan Howe`}</ResponsiveTypography>
+        </footer>
     );
 };
 

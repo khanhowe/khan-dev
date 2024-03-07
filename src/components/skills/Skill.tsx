@@ -1,13 +1,13 @@
-import { Box, Grid } from "@mui/material";
-import ResponsiveTypography from "../ResponsiveText";
-import { SkillTypes } from "./SkillList";
+import { Box, Grid } from '@mui/material';
+import ResponsiveTypography from '../ResponsiveText';
+import { SkillTypes } from './SkillList';
 
-const Skill: React.FC<{ label: string, color: string, type: SkillTypes[], icon: any }> = ({ 
-    label, 
-    color, 
-    type, 
-    icon, 
-}) => {
+const Skill: React.FC<{
+    label: string;
+    color: string;
+    type: SkillTypes[];
+    icon: any;
+}> = ({ label, color, type, icon }) => {
     return (
         <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
             <Box
@@ -30,13 +30,15 @@ const Skill: React.FC<{ label: string, color: string, type: SkillTypes[], icon: 
                 }}
             >
                 {icon(color)}
-                <ResponsiveTypography 
-                    variant='body2'
+                <ResponsiveTypography
+                    variant="body2"
                     sx={{ marginTop: '1rem' }}
-                >{label}</ResponsiveTypography>
+                >
+                    {label}
+                </ResponsiveTypography>
             </Box>
         </Grid>
     );
-}
+};
 
 export default Skill;

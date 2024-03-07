@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 const imageSizeMap = {
     width: {
@@ -29,17 +29,17 @@ const ProfilePicture: React.FC = () => (
         sx={{
             ...imageSizeMap,
             borderRadius: '50%',
-            boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.2)'
+            boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.2)',
         }}
     >
-        <img 
-            src='/khanhowe-pic.jpeg'
-            alt='khan-howe'
+        <img
+            src="/khanhowe-pic.jpeg"
+            alt="khan-howe"
             style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                borderRadius: '50%'
+                borderRadius: '50%',
             }}
         />
     </Box>

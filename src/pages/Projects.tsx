@@ -1,13 +1,13 @@
-import { Box, Grid, Link, Typography } from "@mui/material";
-import Page from "../components/Page";
-import useFadeInEffect from "../hooks/useFadeInEffect";
+import { Box, Grid, Link, Typography } from '@mui/material';
+import Page from '../components/Page';
+import useFadeInEffect from '../hooks/useFadeInEffect';
 import '../styles/App.css';
 import '../styles/Projects.css';
-import SectionTitle from "../components/SectionTitle";
-import ResponsiveTypography from "../components/ResponsiveText";
-import { createStackIcon } from "./Experience";
-import { faNode, faNodeJs, faReact } from "@fortawesome/free-brands-svg-icons";
-import { faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
+import SectionTitle from '../components/SectionTitle';
+import ResponsiveTypography from '../components/ResponsiveText';
+import { createStackIcon } from './Experience';
+import { faNode, faNodeJs, faReact } from '@fortawesome/free-brands-svg-icons';
+import { faDatabase, faServer } from '@fortawesome/free-solid-svg-icons';
 
 interface ProjectCardProps {
     title: string;
@@ -21,39 +21,43 @@ interface ProjectCardProps {
 const projects: ProjectCardProps[] = [
     {
         title: 'khanhowe.dev',
-        description: 'This is the page you\'re on now! Check out the repo to see how it was built!',
+        description:
+            "This is the page you're on now! Check out the repo to see how it was built!",
         url: 'https://www.khanhowe.dev',
         repoUrl: 'https://github.com/khanhowe/khan-dev',
         year: 2023,
         icons: [
             createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
             createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
-        ]
+        ],
     },
     {
         title: 'Robert Willcox Art',
-        description: 'An art portfolio. Built to highlight scenes of contemporary beauty products.',
+        description:
+            'An art portfolio. Built to highlight scenes of contemporary beauty products.',
         url: 'https://www.robertwillcox.com',
         year: 2021,
         icons: [
             createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
             createStackIcon('Next.js', 'black', faNodeJs),
             createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
-        ]
+        ],
     },
     {
         title: 'Legacy Portfolio',
-        description: 'My old portfolio. Certainly stylized, but I have learned much since.',
+        description:
+            'My old portfolio. Certainly stylized, but I have learned much since.',
         url: 'https://khan-dev-legacy-5722516bc6f3.herokuapp.com',
         year: 2020,
         icons: [
             createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
             createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
-        ]
+        ],
     },
     {
         title: 'Xplicit',
-        description: 'Tool that identifies explicit language in song lyrics. This is an older project.',
+        description:
+            'Tool that identifies explicit language in song lyrics. This is an older project.',
         url: 'https://xplicit-website.herokuapp.com',
         year: 2020,
         icons: [
@@ -61,11 +65,18 @@ const projects: ProjectCardProps[] = [
             createStackIcon('Express.js', 'black', faServer),
             createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
             createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
-        ]
+        ],
     },
 ];
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, url, repoUrl, year, icons }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+    title,
+    description,
+    url,
+    repoUrl,
+    year,
+    icons,
+}) => {
     return (
         <Box
             sx={{
@@ -77,46 +88,53 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, url, repo
                 transition: 'box-shadow 0.3s ease',
                 '&:hover': {
                     boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.5)',
-                }
+                },
             }}
         >
             <Box
                 sx={{
                     display: 'flex',
                     justifyContent: 'space-between',
-                    alignItems: 'center'
+                    alignItems: 'center',
                 }}
             >
                 <Link href={url}>
-                    <ResponsiveTypography variant="body1" gutterBottom><b>{title}</b></ResponsiveTypography>
+                    <ResponsiveTypography variant="body1" gutterBottom>
+                        <b>{title}</b>
+                    </ResponsiveTypography>
                 </Link>
-                <ResponsiveTypography variant="body2">{year}</ResponsiveTypography>
+                <ResponsiveTypography variant="body2">
+                    {year}
+                </ResponsiveTypography>
             </Box>
-                {icons?.map((icon) => icon)}
-                <ResponsiveTypography variant='body2'>{description}</ResponsiveTypography>
-                {repoUrl && <Link href={repoUrl}>
-                    <ResponsiveTypography variant='body2'>
+            {icons?.map((icon) => icon)}
+            <ResponsiveTypography variant="body2">
+                {description}
+            </ResponsiveTypography>
+            {repoUrl && (
+                <Link href={repoUrl}>
+                    <ResponsiveTypography variant="body2">
                         GitHub
                     </ResponsiveTypography>
-                </Link>}
+                </Link>
+            )}
         </Box>
-    )
-}
+    );
+};
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
     return (
-        <Box 
-            id='Projects'
-            sx={{ marginTop: '4rem' }}
-        >
-            <SectionTitle title='Projects'/>
+        <Box id="Projects" sx={{ marginTop: '4rem' }}>
+            <SectionTitle title="Projects" />
             <Page>
-                <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                <div
+                    className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}
+                >
                     <div>
                         <Grid container spacing={1}>
                             {projects.map((project, index) => (
-                                <ProjectCard 
+                                <ProjectCard
                                     key={index}
                                     year={project.year}
                                     title={project.title}
