@@ -1,5 +1,4 @@
 import { Box, Tooltip } from '@mui/material';
-import '../styles/Experience.scss';
 import SectionTitle from '../components/SectionTitle';
 import ResponsiveTypography from '../components/ResponsiveText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -154,11 +153,17 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                 </Box>
             </Box>
             <hr />
-            <div className="experience-text-div">
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1,
+                }}
+            >
                 <ResponsiveTypography variant="body2">
                     {description}
                 </ResponsiveTypography>
-            </div>
+            </Box>
         </Box>
     );
 };
@@ -167,7 +172,7 @@ const Experience: React.FC = () => {
     return (
         <div style={{ marginTop: '4rem' }}>
             <SectionTitle title="Professional Experience" />
-            <div className="card-list" id="Experience">
+            <div id="Experience">
                 {experienceList.map((item, index) => (
                     <ExperienceSection
                         key={index}

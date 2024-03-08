@@ -1,6 +1,5 @@
 import Page from '../components/Page';
 import '../styles/App.css';
-import '../styles/About.scss';
 import useFadeInEffect from '../hooks/useFadeInEffect';
 import SectionTitle from '../components/SectionTitle';
 import React from 'react';

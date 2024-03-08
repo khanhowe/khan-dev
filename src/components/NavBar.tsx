@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import MenuIcon from '@mui/icons-material/Menu';
-import '../styles/NavBar.css';
+
 import React, { useMemo, useRef, useState } from 'react';
 import ResponsiveTypography from './ResponsiveText';
 import { ContactButton, contactItems } from './Contact';
@@ -126,12 +126,17 @@ const NavBar: React.FC = () => {
                 display: 'flex',
             }}
         >
-            <div className="logo">
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
                 <CodeIcon sx={{ mr: 1 }} color="inherit" fontSize="large" />
                 <ResponsiveTypography variant="h4">
                     Khan Howe
                 </ResponsiveTypography>
-            </div>
+            </Box>
         </Box>
     );
 
@@ -175,13 +180,20 @@ const NavBar: React.FC = () => {
 
     return (
         <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
-            <Container maxWidth="xl" className="navbar">
+            <Container
+                maxWidth="xl"
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '5px',
+                    justifyContent: 'space-between', // Add this line
+                }}
+            >
                 <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
                     <NameLogo />
-                    <div
-                        ref={anchorRef}
-                        style={{ position: 'fixed', top: 0, right: 0 }}
-                    />
+                </Toolbar>
+                <div ref={anchorRef} />
+                <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
                     <MobileMenu
                         scrollToSection={scrollToSection}
                         sections={sections}
