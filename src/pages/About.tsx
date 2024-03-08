@@ -35,7 +35,7 @@ const CenteredIntro: React.FC = () => {
             </ResponsiveTypography>
             <ResponsiveTypography variant="body1">
                 Download my{' '}
-                <a href="/KhanhNguyenResume.pdf" download>
+                <a href="/KhanHowe_Resume_030724.pdf" download>
                     resume
                 </a>{' '}
                 or learn more about me. ↓
