@@ -1,8 +1,6 @@
 import { Box, Grid, Link } from '@mui/material';
 import Page from '../components/Page';
-import useFadeInEffect from '../hooks/useFadeInEffect';
 import '../styles/App.css';
-import '../styles/Projects.css';
 import SectionTitle from '../components/SectionTitle';
 import ResponsiveTypography from '../components/ResponsiveText';
 import { createStackIcon } from './Experience';
@@ -131,14 +129,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const Projects: React.FC = () => {
-    const isVisible = useFadeInEffect();
     return (
         <Box id="Projects" sx={{ marginTop: '4rem' }}>
             <SectionTitle title="Projects" />
             <Page>
-                <div
-                    className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}
-                >
+                <div>
                     <div>
                         <Grid container spacing={1}>
                             {projects.map((project, index) => (

@@ -1,8 +1,0 @@
-.page-div {
-    padding: 10px auto;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}

@@ -1,5 +1,4 @@
 import { Box, Tooltip } from '@mui/material';
-import '../styles/Experience.scss';
 import SectionTitle from '../components/SectionTitle';
 import ResponsiveTypography from '../components/ResponsiveText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -110,7 +109,8 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                     sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center',
+                        alignItems: { xs: 'flex-start', sm: 'center' },
+                        flexDirection: { xs: 'column', sm: 'row' },
                     }}
                 >
                     <ResponsiveTypography variant="body1">
@@ -118,6 +118,17 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                     </ResponsiveTypography>
                     <ResponsiveTypography variant="body2">
                         {dateRange}
+                    </ResponsiveTypography>
+                    <ResponsiveTypography
+                        variant="body2"
+                        sx={{
+                            display: {
+                                xs: 'inherit',
+                                sm: 'none',
+                            },
+                        }}
+                    >
+                        {title}
                     </ResponsiveTypography>
                 </Box>
                 <Box
@@ -127,18 +138,32 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                         alignItems: 'center',
                     }}
                 >
-                    <ResponsiveTypography variant="body2">
+                    <ResponsiveTypography
+                        variant="body2"
+                        sx={{
+                            display: {
+                                xs: 'none',
+                                sm: 'inherit',
+                            },
+                        }}
+                    >
                         {title}
                     </ResponsiveTypography>
                     <Box>{icons?.map((icon) => icon)}</Box>
                 </Box>
             </Box>
             <hr />
-            <div className="experience-text-div">
+            <Box
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1,
+                }}
+            >
                 <ResponsiveTypography variant="body2">
                     {description}
                 </ResponsiveTypography>
-            </div>
+            </Box>
         </Box>
     );
 };
@@ -147,7 +172,7 @@ const Experience: React.FC = () => {
     return (
         <div style={{ marginTop: '4rem' }}>
             <SectionTitle title="Professional Experience" />
-            <div className="card-list" id="Experience">
+            <div id="Experience">
                 {experienceList.map((item, index) => (
                     <ExperienceSection
                         key={index}
