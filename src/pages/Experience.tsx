@@ -110,7 +110,8 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                     sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
-                        alignItems: 'center',
+                        alignItems: { xs: 'flex-start', sm: 'center' },
+                        flexDirection: { xs: 'column', sm: 'row' },
                     }}
                 >
                     <ResponsiveTypography variant="body1">
