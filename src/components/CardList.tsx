@@ -1,8 +1,8 @@
-import { Card } from "@mui/material";
+import { Card } from '@mui/material';
 
 const CardList: React.FC = () => {
     return (
-        <div className='card-list'>
+        <div className="card-list">
             <Card>Test</Card>
         </div>
     );

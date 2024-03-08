@@ -1,17 +1,15 @@
 import React from 'react';
-import Contact from '../pages/Contact';
 import '../styles/App.css';
-import { Typography } from '@mui/material';
+import ResponsiveTypography from './ResponsiveText';
 
 const Footer: React.FC = () => {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear()
+    const currentYear = currentDate.getFullYear();
     return (
-    <footer className="footer">
-        <hr style={{width: '20%' }}/>
-        <Contact/>
-        <Typography style={{fontSize: '0.8rem'}}>{`©${currentYear} Khan Howe`}</Typography>
-    </footer>
+        <footer className="footer">
+            <hr style={{ minWidth: '200px' }} />
+            <ResponsiveTypography variant="subtitle1">{`©${currentYear} Khan Howe`}</ResponsiveTypography>
+        </footer>
     );
 };
 

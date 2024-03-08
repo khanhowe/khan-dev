@@ -4,14 +4,10 @@ import '../styles/App.css';
 
 interface PageProps {
     children: ReactNode;
-};
+}
 
 const Page: React.FC<PageProps> = ({ children }) => {
-    return (
-        <div className='page-div'>
-            {children}
-        </div>
-    );
+    return <div className="page-div">{children}</div>;
 };
 
 export default Page;

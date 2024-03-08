@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 const theme = createTheme({
     typography: {
@@ -13,10 +13,10 @@ const theme = createTheme({
             '"Apple Color Emoji"',
             '"Segoe UI Emoji"',
             '"Segoe UI Symbol"',
-            '"proxima-nova"'
+            '"proxima-nova"',
         ].join(','),
-        fontSize: 16
-    }
+        fontSize: 16,
+    },
 });
 
 export default theme;

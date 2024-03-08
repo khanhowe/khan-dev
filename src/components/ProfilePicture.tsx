@@ -1,16 +1,16 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 const imageSizeMap = {
     width: {
-        xs: '200px',
-        sm: '250px',
+        xs: '300px',
+        sm: '300px',
         md: '300px',
         lg: '350px',
         xl: '400px',
     },
     height: {
-        xs: '200px',
-        sm: '250px',
+        xs: '300px',
+        sm: '300px',
         md: '300px',
         lg: '350px',
         xl: '400px',
@@ -29,17 +29,17 @@ const ProfilePicture: React.FC = () => (
         sx={{
             ...imageSizeMap,
             borderRadius: '50%',
-            boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.2)'
+            boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.2)',
         }}
     >
-        <img 
-            src='/khanhowe-pic.jpeg'
-            alt='khan-howe'
+        <img
+            src="https://avatars.githubusercontent.com/u/12534401?v=4"
+            alt="khan-howe"
             style={{
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                borderRadius: '50%'
+                borderRadius: '50%',
             }}
         />
     </Box>

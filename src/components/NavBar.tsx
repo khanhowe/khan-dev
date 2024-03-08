@@ -1,51 +1,73 @@
-import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import {
+    AppBar,
+    Box,
+    Button,
+    Container,
+    Divider,
+    Drawer,
+    IconButton,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Toolbar,
+} from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
 import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/NavBar.css';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
+import ResponsiveTypography from './ResponsiveText';
+import { ContactButton, contactItems } from './Contact';
+import { Person, WorkHistory } from '@mui/icons-material';
 
+interface SectionProps {
+    name: string;
+    icon: JSX.Element;
+}
 interface MenuProps {
     scrollToSection: (section: string) => void;
-    sections: string[];
+    sections: SectionProps[];
 }
 
 const NavBar: React.FC = () => {
+    const anchorRef = useRef(null);
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-    
-    const sections: string[] = useMemo(() => [
-        'About',
-        'Background',
-        'Projects'
-    ], []);
+
+    const sections: SectionProps[] = useMemo(
+        () => [
+            { name: 'About', icon: <Person /> },
+            { name: 'Background', icon: <WorkHistory /> },
+            { name: 'Projects', icon: <CodeIcon /> },
+        ],
+        [],
+    );
 
     const scrollToSection = (sectionId: string) => {
         const section = document.getElementById(sectionId);
         if (section) {
-          const offset = 150;
-          const bodyRect = document.body.getBoundingClientRect().top;
-          const sectionRect = section.getBoundingClientRect().top;
-          const sectionPosition = sectionRect - bodyRect;
-          const offsetPosition = sectionPosition - offset;
-      
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth',
-          });
-        }
-      };
+            const offset = 150;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const sectionRect = section.getBoundingClientRect().top;
+            const sectionPosition = sectionRect - bodyRect;
+            const offsetPosition = sectionPosition - offset;
 
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget);
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    const handleOpenNavMenu = () => {
+        setAnchorElNav(anchorRef.current);
     };
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-
     const MobileMenu: React.FC<MenuProps> = ({ scrollToSection, sections }) => (
         <div>
-             <IconButton
-                sx={{ display: { xs: 'flex', md: 'none'}, mr: 2 }}
+            <IconButton
+                sx={{ display: { xs: 'flex', md: 'none' }, mr: 2 }}
                 size="large"
                 edge="start"
                 color="inherit"
@@ -54,30 +76,46 @@ const NavBar: React.FC = () => {
             >
                 <MenuIcon />
             </IconButton>
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
+            <Drawer
+                anchor="right"
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
-                sx={{
-                    display: { xs: 'block', md: 'none' },
-                }}
+                transitionDuration={500}
+            >
+                <Box
+                    sx={{ width: 250 }}
+                    role="presentation"
+                    onClick={handleCloseNavMenu}
+                    onKeyDown={handleCloseNavMenu}
                 >
-                {sections.map((section) => (
-                    <MenuItem key={section} onClick={() => { scrollToSection(section); handleCloseNavMenu(); }}>
-                        <Typography textAlign="center">{section}</Typography>
-                    </MenuItem>
-                ))}
-            </Menu>
+                    {sections.map((section) => (
+                        <ListItem
+                            key={section.name}
+                            onClick={() => scrollToSection(section.name)}
+                        >
+                            <ListItemIcon>{section.icon}</ListItemIcon>
+                            <ListItemText primary={section.name} />
+                        </ListItem>
+                    ))}
+                    <Divider />
+                    {contactItems.map((item, index) => (
+                        <ListItem button key={index}>
+                            <a
+                                href={item.link}
+                                style={{
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <ListItemIcon>{item.icon}</ListItemIcon>
+                                <ListItemText primary={item.title} />
+                            </a>
+                        </ListItem>
+                    ))}
+                </Box>
+            </Drawer>
         </div>
     );
 
@@ -86,51 +124,76 @@ const NavBar: React.FC = () => {
             sx={{
                 flexGrow: 1,
                 display: 'flex',
-                justifyContent: { xs: 'flex-end', md: 'inherit' },
             }}
         >
-            <div className='logo'>
-                <CodeIcon 
-                    sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-                    color="inherit"
-                    fontSize='large'
-                />
-                <Typography variant='h5'>Khan Howe</Typography>
+            <div className="logo">
+                <CodeIcon sx={{ mr: 1 }} color="inherit" fontSize="large" />
+                <ResponsiveTypography variant="h4">
+                    Khan Howe
+                </ResponsiveTypography>
             </div>
         </Box>
     );
 
-    const DesktopMenu: React.FC<MenuProps> = ({ scrollToSection, sections }) => (
-        <Box sx={{ 
-            flexGrow: 1,
-            display: { xs: 'none', md: 'flex' },
-            justifyContent: 'flex-end',
-            alignItems: 'center',
-        }}>
+    const VerticalRule: React.FC = () => (
+        <div
+            style={{
+                borderLeft: '1px solid white',
+                height: '20px',
+                marginLeft: '10px',
+                marginRight: '10px',
+            }}
+        />
+    );
+
+    const DesktopMenu: React.FC<MenuProps> = ({
+        scrollToSection,
+        sections,
+    }) => (
+        <Box
+            sx={{
+                display: { xs: 'none', md: 'flex' },
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+            }}
+        >
             {sections.map((section) => (
-            <Button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-                {section}
-            </Button>
+                <Button
+                    key={section.name}
+                    onClick={() => scrollToSection(section.name)}
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                    {section.name}
+                </Button>
+            ))}
+            <VerticalRule />
+            {contactItems.map((item, index) => (
+                <ContactButton key={index} icon={item.icon} link={item.link} />
             ))}
         </Box>
-    )
-
+    );
 
     return (
-        <AppBar position='fixed' sx={{ backgroundColor: 'black' }}>
-            <Container maxWidth='xl' className='navbar'>
+        <AppBar position="fixed" sx={{ backgroundColor: 'black' }}>
+            <Container maxWidth="xl" className="navbar">
                 <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
-                    <MobileMenu scrollToSection={scrollToSection} sections={sections}/>
-                    <NameLogo/>
-                    <DesktopMenu scrollToSection={scrollToSection} sections={sections}/>
+                    <NameLogo />
+                    <div
+                        ref={anchorRef}
+                        style={{ position: 'fixed', top: 0, right: 0 }}
+                    />
+                    <MobileMenu
+                        scrollToSection={scrollToSection}
+                        sections={sections}
+                    />
+                    <DesktopMenu
+                        scrollToSection={scrollToSection}
+                        sections={sections}
+                    />
                 </Toolbar>
             </Container>
         </AppBar>
     );
-}
+};
 
 export default NavBar;

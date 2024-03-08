@@ -1,6 +1,6 @@
-import { Breadcrumbs, Link } from "@mui/material";
-import '../styles/Header.css'
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Breadcrumbs, Link } from '@mui/material';
+import '../styles/Header.css';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface BreadcrumbLinkProps {
     sectionName: string;
@@ -8,10 +8,14 @@ interface BreadcrumbLinkProps {
     onClick: () => void;
 }
 
-const BreadcrumbLink: React.FC<BreadcrumbLinkProps> = ({ sectionName, isActive, onClick }) => (
-    <Link 
-        underline={isActive ? "always" : "hover"}
-        color={isActive ? "secondary" : "text.primary"}
+const BreadcrumbLink: React.FC<BreadcrumbLinkProps> = ({
+    sectionName,
+    isActive,
+    onClick,
+}) => (
+    <Link
+        underline={isActive ? 'always' : 'hover'}
+        color={isActive ? 'secondary' : 'text.primary'}
         onClick={(e) => {
             e.preventDefault();
             onClick();
@@ -25,14 +29,17 @@ const BreadcrumbLink: React.FC<BreadcrumbLinkProps> = ({ sectionName, isActive, 
 const Header: React.FC = () => {
     const [activeSelection, setActiveSection] = useState<string>('');
     const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
-    
-    const sections: string[] = useMemo(() => [
-        'About',
-        'Technologies and Languages',
-        'Professional Experience',
-        'Education',
-        'Projects'
-    ], []);
+
+    const sections: string[] = useMemo(
+        () => [
+            'About',
+            'Technologies and Languages',
+            'Professional Experience',
+            'Education',
+            'Projects',
+        ],
+        [],
+    );
 
     const scrollToSection = (sectionId: string): void => {
         const section = document.getElementById(sectionId);
@@ -44,7 +51,7 @@ const Header: React.FC = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         setActiveSection(entry.target.id);
                     }
@@ -52,7 +59,7 @@ const Header: React.FC = () => {
             },
             {
                 threshold: 0.1,
-            }
+            },
         );
 
         sections.forEach((section) => {
@@ -74,17 +81,22 @@ const Header: React.FC = () => {
     }, [sections]);
 
     return (
-        <div className='header sticky' style={{ display: activeSelection === 'About' ? 'none' : 'flex'}}>
+        <div
+            className="header sticky"
+            style={{ display: activeSelection === 'About' ? 'none' : 'flex' }}
+        >
             <Breadcrumbs>
-                {sections.map((section,index) => <BreadcrumbLink 
-                    key={index} 
-                    sectionName={section}
-                    isActive={activeSelection === section}
-                    onClick={() => scrollToSection(section)}
-                />)}
+                {sections.map((section, index) => (
+                    <BreadcrumbLink
+                        key={index}
+                        sectionName={section}
+                        isActive={activeSelection === section}
+                        onClick={() => scrollToSection(section)}
+                    />
+                ))}
             </Breadcrumbs>
         </div>
     );
-}
+};
 
 export default Header;
