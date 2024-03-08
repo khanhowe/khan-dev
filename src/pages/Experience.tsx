@@ -120,6 +120,17 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                     <ResponsiveTypography variant="body2">
                         {dateRange}
                     </ResponsiveTypography>
+                    <ResponsiveTypography
+                        variant="body2"
+                        sx={{
+                            display: {
+                                xs: 'inherit',
+                                sm: 'none',
+                            },
+                        }}
+                    >
+                        {title}
+                    </ResponsiveTypography>
                 </Box>
                 <Box
                     sx={{
@@ -128,7 +139,15 @@ export const ExperienceSection: React.FC<ExperienceItem> = ({
                         alignItems: 'center',
                     }}
                 >
-                    <ResponsiveTypography variant="body2">
+                    <ResponsiveTypography
+                        variant="body2"
+                        sx={{
+                            display: {
+                                xs: 'none',
+                                sm: 'inherit',
+                            },
+                        }}
+                    >
                         {title}
                     </ResponsiveTypography>
                     <Box>{icons?.map((icon) => icon)}</Box>
