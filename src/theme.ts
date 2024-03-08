@@ -1,14 +1,6 @@
 import { createTheme } from "@mui/material";
 
 const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#00bcd4'
-        },
-        secondary: {
-            main: '#ff5722'
-        }
-    },
     typography: {
         fontFamily: [
             '-apple-system',

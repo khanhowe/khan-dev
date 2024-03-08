@@ -1,21 +1,28 @@
 @import 'breakpoints';
 @import 'mixins';
 
-
-.about-bio {
+.name-title {
     text-align: center;
 }
 
+.about-bio {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.intro-text {
+    display: flex;
+    align-items: center;
+
+}
 .profile-image {
-    margin: 20px none;
     border-radius: 50%;
-    min-height: 10vw;
-    max-height: 50vw;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .about-text {
-    margin-top: 40px;
+    margin-top: 20px;
     min-width: 20vw;
     text-align: center;
 

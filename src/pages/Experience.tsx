@@ -1,6 +1,11 @@
-import { Typography } from "@mui/material";
+import { Box, Tooltip } from "@mui/material";
 import '../styles/Experience.scss';
 import SectionTitle from "../components/SectionTitle";
+import ResponsiveTypography from "../components/ResponsiveText";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconDefinition, faAws, faJs, faNode, faPython, faReact } from "@fortawesome/free-brands-svg-icons";
+import { faBoltLightning, faDatabase, faServer } from "@fortawesome/free-solid-svg-icons";
+import { create } from "domain";
 
 interface ExperienceItem {
     title: string;
@@ -8,14 +13,21 @@ interface ExperienceItem {
     dateRange: string;
     description: string;
     bulletPoints: string[];
+    icons?: JSX.Element[];
 }
+
+const createStackIcon = (label: string, color: string, icon: IconDefinition) => (
+    <Tooltip title={label}>
+        <FontAwesomeIcon icon={icon} color={color} size='2x' style={{ padding: '8px'}}/>
+    </Tooltip>
+);
 
 const experienceList: ExperienceItem[] = [
     {
         title: 'Full-Stack Engineer',
         company: 'Class Technologies Inc.',
-        dateRange: '2021-2023',
-        description: 'As a Full Stack Engineer at Class Technologies, I excelled in both the creation and maintenance of React-powered admin and in-app pages.',
+        dateRange: 'January 2021 - May 2023',
+        description: 'Led both frontend and backend development for a fast-paced conferencing ed-tech company.',
         bulletPoints: [
             'Designed and implemented TypeScript API endpoints hosted on AWS Lambda via the Serverless framework.',
             'Refactored and optimized mountains of legacy code.',
@@ -23,65 +35,97 @@ const experienceList: ExperienceItem[] = [
             'Contributed to application integrations, front-end localization, and punctual deployments to production.',
             'In leadership roles, I led daily stand-ups, participated in hiring processes, and mentored new developers.',
             'Excelled at adaptability and my commitment to project success.'
-        ]
+        ],
+        icons: [
+            createStackIcon('PostgreSQL', 'rgb(105, 158, 202)', faDatabase),
+            createStackIcon('Serverless', 'rgb(253, 87, 80)', faBoltLightning),
+            createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
+            createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
+            createStackIcon('AWS', 'rgb(255, 153, 0)', faAws),
+        ],
     },
     {
         title: 'Full-Stack Engineer',
         company: 'Attently Inc.',
-        dateRange: '2018-2020',
-        description: 'At Attently, I took a lead role in crafting and implementing sophisticated data analysis tools, which were instrumental in dissecting facial expression data for valuable customer feedback metrics.',
+        dateRange: 'June 2018 - April 2020',
+        description: 'Designed, developed, and delivered computer vision web applications using data science metrics.',
         bulletPoints: [
             'Implemented AWS services like Kinesis, Rekognition, DynamoDB, S3, CloudWatch, and Cognito to efficiently handle and manipulate large volumes of customer data.',
             'Collaborated closely with cross-functional teams to build React web plugins, elevating the functionality of our web applications.',
             'Built fundamental video conferencing applications using WebRTC technology.',
             'Thrived as a key contributor, readily adapting to shifting business priorities and playing a pivotal role in several strategic pivots in an early startup environment.'
-        ]
+        ],
+        icons: [
+            createStackIcon('DynamoDB', 'rgb(255, 153, 0)', faAws),
+            createStackIcon('Express.js', 'black', faServer),
+            createStackIcon('React', 'rgba(8, 126, 164, 0.8)', faReact),
+            createStackIcon('Node.js', 'rgb(67, 133, 61)', faNode),
+            createStackIcon('Python', '#3776ab', faPython),
+        ],
     },
 ];
 
 
 
-export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, description, bulletPoints }) => {
+export const ExperienceSection: React.FC<ExperienceItem> = ({ title, company, dateRange, description, icons }) => {
     return (
-        <div className='experience-section'>
-            <div className='experience-header'>
-                <div>
-                    <Typography variant='h5'>{company}</Typography>
-                </div>
-                <div className='experience-info'>
-                    <Typography>{title}</Typography>
-                    <Typography>{dateRange}</Typography>
-                </div>
-            </div>
+        <Box
+            sx={{
+                padding: '3rem',
+                marginBottom: '2rem',
+                boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.2)',
+                borderRadius: '10px',
+                transition: 'box-shadow 0.3s ease',
+                '&:hover': {
+                    boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.5)',
+                }
+            }}
+        >
+            <Box>
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <ResponsiveTypography variant="body1"><b>{company}</b></ResponsiveTypography>
+                    <ResponsiveTypography variant="body2">{dateRange}</ResponsiveTypography>
+                </Box>
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                }}>
+                    <ResponsiveTypography variant='body2'>{title}</ResponsiveTypography>
+                    <Box>
+                        {icons?.map((icon) => icon)}
+                    </Box>
+                </Box>
+            </Box>
             <hr />
             <div className='experience-text-div'>
-                <Typography>{description}</Typography>
-                <div className='bullet-points'>
-                    <Typography component='ul'>
-                        {bulletPoints.map((point, index) => (
-                            <li key={index}>
-                                <Typography>{point}</Typography>
-                            </li>
-                        ))}
-                    </Typography>
-                </div>
+                <ResponsiveTypography variant="body2">
+                    {description}
+                </ResponsiveTypography>
             </div>
-        </div>
+        </Box>
     );
 };
 
 const Experience: React.FC = () => {
     return (
-        <div className='card-list'>
-            <SectionTitle title='Experience'/>
-            {experienceList.map((item, index) => <ExperienceSection 
-                key={index} 
-                title={item.title}
-                company={item.company}
-                dateRange={item.dateRange}
-                description={item.description}
-                bulletPoints={item.bulletPoints}
-            />)}
+        <div style={{ marginTop: '4rem'}}>
+            <SectionTitle title="Professional Experience"/>
+            <div className='card-list' id='Experience'>
+                {experienceList.map((item, index) => <ExperienceSection 
+                    key={index} 
+                    title={item.title}
+                    company={item.company}
+                    dateRange={item.dateRange}
+                    description={item.description}
+                    bulletPoints={item.bulletPoints}
+                    icons={item.icons}
+                />)}
+            </div>
         </div>
     );
 }

@@ -1,51 +1,136 @@
-import { Tab, Tabs } from "@mui/material";
-import React, { useEffect, useMemo, useState } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Typography } from '@mui/material';
+import CodeIcon from '@mui/icons-material/Code';
+import MenuIcon from '@mui/icons-material/Menu';
 import '../styles/NavBar.css';
+import React, { useMemo, useState } from 'react';
 
-interface TabData {
-    title: string;
-    route: string;
+interface MenuProps {
+    scrollToSection: (section: string) => void;
+    sections: string[];
 }
 
-const a11yProps = (index: number) => {
-    return {
-        id: `tab-${index}`,
-        'aria-controls': `tabpanel-${index}`
-    };
-};
-
 const NavBar: React.FC = () => {
-    const location = useLocation();
-    const [pageSelect, setPageSelect] = useState<number>(0);
-    const navigate = useNavigate();
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
     
-    const tabs: TabData[] = useMemo(() => [
-        { title: 'Home', route: '/'},
-        { title: 'About', route: '/about'},
-        { title: 'Background', route: '/background'},
-        { title: 'Projects', route: '/projects'}
+    const sections: string[] = useMemo(() => [
+        'About',
+        'Background',
+        'Projects'
     ], []);
 
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setPageSelect(newValue);
-        navigate(tabs[newValue].route);
+    const scrollToSection = (sectionId: string) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const offset = 150;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const sectionRect = section.getBoundingClientRect().top;
+          const sectionPosition = sectionRect - bodyRect;
+          const offsetPosition = sectionPosition - offset;
+      
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth',
+          });
+        }
+      };
+
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
     };
 
-    useEffect(() => {
-        const selectedTabIndex = tabs.findIndex(tab => tab.route === location.pathname);
-        if (selectedTabIndex !== -1) {
-            setPageSelect(selectedTabIndex);
-        }
-    }, [location.pathname, tabs]);
 
-    return (
-        <div className='navbar-div'>
-            <Tabs value={pageSelect} onChange={handleChange}   textColor="primary" indicatorColor="primary" className='navbar' variant='fullWidth'>
-                {tabs.map((tab, index) => <Tab label={tab.title}  className='navbar-tab' {...a11yProps(index)} key={index}/>)}
-            </Tabs>
+    const MobileMenu: React.FC<MenuProps> = ({ scrollToSection, sections }) => (
+        <div>
+             <IconButton
+                sx={{ display: { xs: 'flex', md: 'none'}, mr: 2 }}
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleOpenNavMenu}
+            >
+                <MenuIcon />
+            </IconButton>
+            <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                    display: { xs: 'block', md: 'none' },
+                }}
+                >
+                {sections.map((section) => (
+                    <MenuItem key={section} onClick={() => { scrollToSection(section); handleCloseNavMenu(); }}>
+                        <Typography textAlign="center">{section}</Typography>
+                    </MenuItem>
+                ))}
+            </Menu>
         </div>
     );
-};
+
+    const NameLogo: React.FC = () => (
+        <Box
+            sx={{
+                flexGrow: 1,
+                display: 'flex',
+                justifyContent: { xs: 'flex-end', md: 'inherit' },
+            }}
+        >
+            <div className='logo'>
+                <CodeIcon 
+                    sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
+                    color="inherit"
+                    fontSize='large'
+                />
+                <Typography variant='h5'>Khan Howe</Typography>
+            </div>
+        </Box>
+    );
+
+    const DesktopMenu: React.FC<MenuProps> = ({ scrollToSection, sections }) => (
+        <Box sx={{ 
+            flexGrow: 1,
+            display: { xs: 'none', md: 'flex' },
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+        }}>
+            {sections.map((section) => (
+            <Button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+                {section}
+            </Button>
+            ))}
+        </Box>
+    )
+
+
+    return (
+        <AppBar position='fixed' sx={{ backgroundColor: 'black' }}>
+            <Container maxWidth='xl' className='navbar'>
+                <Toolbar sx={{ display: 'flex', alignItems: 'center' }}>
+                    <MobileMenu scrollToSection={scrollToSection} sections={sections}/>
+                    <NameLogo/>
+                    <DesktopMenu scrollToSection={scrollToSection} sections={sections}/>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    );
+}
 
 export default NavBar;

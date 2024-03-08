@@ -1,9 +1,8 @@
-import { Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import Page from "../components/Page";
 import useFadeInEffect from "../hooks/useFadeInEffect";
 import '../styles/App.css';
 import '../styles/Projects.css';
-import { useIsSmScreen } from "../hooks/useScreenSize";
 import SectionTitle from "../components/SectionTitle";
 
 interface ProjectCardProps {
@@ -57,25 +56,29 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageSrc,
 
 const Projects: React.FC = () => {
     const isVisible = useFadeInEffect();
-    const isSmScreen = useIsSmScreen();
     return (
-        <Page>
-            {isSmScreen && <SectionTitle title='Projects'/>}
-            <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                <div>
-                    <Grid container spacing={1}>
-                        {projects.map((project, index) => <ProjectCard 
-                            key={index}
-                            title={project.title}
-                            description={project.description}
-                            imageSrc={project.imageSrc}
-                            url={project.url}
-                            repoUrl={project.repoUrl}
-                        />)}
-                    </Grid>
+        <Box 
+            id='Projects'
+            sx={{ marginTop: '4rem' }}
+        >
+            <SectionTitle title='Projects'/>
+            <Page>
+                <div className={`projects ${isVisible ? 'fade-in' : 'fade-out'}`}>
+                    <div>
+                        <Grid container spacing={1}>
+                            {projects.map((project, index) => <ProjectCard 
+                                key={index}
+                                title={project.title}
+                                description={project.description}
+                                imageSrc={project.imageSrc}
+                                url={project.url}
+                                repoUrl={project.repoUrl}
+                            />)}
+                        </Grid>
+                    </div>
                 </div>
-            </div>
-        </Page>
+            </Page>
+        </Box>
     );
 };
 

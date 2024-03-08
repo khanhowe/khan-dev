@@ -1,6 +1,6 @@
 import { Button } from "@mui/material"
-import { SkillTypes } from "./skills";
 import '../../styles/About.scss';
+import { SkillTypes } from "./SkillList";
 
 interface SkillSelectButtonProps {
     label: SkillTypes;

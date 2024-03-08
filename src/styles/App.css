@@ -1,7 +1,6 @@
 .App {
     display: flex;
     flex-direction: column;
-    padding-bottom: 100px;
 }
 
 .app-body {
@@ -32,13 +31,12 @@
 .section-title {
     width: 100%;
     padding: 10px 0px;
-    margin: 20px 0px;
-    text-align: center;
+    text-align: left;
 }
 
 .view-paper {
     flex: 1;
-    margin: 5% 5% 0% 5%;
+    margin: 1% 5% 0% 5%;
 }
 
 .name-title {
@@ -56,22 +54,17 @@ p {
 }
 
 .footer {
+    margin-top: 20px;
     color: black;
     padding: 5px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    background-color: white;
-    z-index: 2;
 }
 
 hr {
     border-color: black;
     border-width: 0.5px;
-    max-width: 800px;
 }

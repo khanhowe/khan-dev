@@ -1,39 +1,98 @@
-import { Typography } from "@mui/material";
 import Page from "../components/Page";
 import '../styles/App.css';
 import '../styles/About.scss';
 import useFadeInEffect from "../hooks/useFadeInEffect";
-import { useIsSmScreen } from "../hooks/useScreenSize";
 import SectionTitle from "../components/SectionTitle";
 import React from "react";
-import SkillList from "../components/skills/SkillList";
+import { Box, Grid } from "@mui/material";
+import ResponsiveTypography from "../components/ResponsiveText";
+import Skill from "../components/skills/Skill";
+import ProfilePicture from "../components/ProfilePicture";
+import { SkillList } from "../components/skills/SkillList";
 
 
+
+const CenteredIntro: React.FC = () => {
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                flexDirection: 'column',
+                height: '100vh',
+            }}
+        >
+            <ProfilePicture/>
+            <ResponsiveTypography variant="h1">
+                Hi there, I'm<span style={{ backgroundColor: 'rgb(255, 2, 3, 0.2)' }}> Khan.</span>
+            </ResponsiveTypography>
+            <ResponsiveTypography variant="h2">
+                A Full Stack Engineer
+            </ResponsiveTypography>
+            <ResponsiveTypography variant="body1">
+                Download my <a href="/KhanhNguyenResume.pdf" download>resume</a> or learn more about me. ↓
+            </ResponsiveTypography>
+        </Box>
+    );
+};
+
+const AboutSection: React.FC = () => {
+    return (
+        <Box>
+            <SectionTitle title="About Me"/>
+            <ResponsiveTypography variant="body1">
+                Based in Tacoma, Washington, I have a passion for writing high-quality, unit-tested, and maintainable code.
+            </ResponsiveTypography>
+            <ResponsiveTypography 
+                variant="body1"
+                sx={{ marginTop: '1rem' }}
+            >
+                With 6+ years working in the tech industry and 10+ years writing code, I excell in both front-end and back-end development.
+            </ResponsiveTypography>
+            <ResponsiveTypography 
+                variant="body1"
+                sx={{ marginTop: '1rem' }}
+            >
+                Strongly valuing communication, collaboration, and a friendly working environment. I am always looking for opportunities to learn and grow as a developer.
+            </ResponsiveTypography>
+        </Box>
+    );
+};
 
 const About: React.FC  = () => {
     const isVisible = useFadeInEffect();
-    const isSmScreen = useIsSmScreen();
-
     return (
         <Page>
-            {isSmScreen && <SectionTitle title='About Me'/>}
             <div className={`about ${isVisible ? 'fade-in' : 'fade-out'}`}>
-                <div className='about-bio'>
-                    <img src='/khanhowe-pic.jpeg' alt='khan-howe' className='profile-image'/>
-                    <div className='about-text'>
-                        <Typography>
-                            I am a <b>passionate</b> Full-stack Engineer based in Tacoma, Washington with 8 years experience in SaaS application and product development. With a proven ability to produce <b>high-quality, test-driven, clean code</b>, I adapt to fit the requirements of many development practices and web-based technologies.
-                        </Typography>
-                        <Typography style={{marginTop: '20px'}}>
-                            The way code is written is important to me, and helps me function better as a developer. I strongly value <b>communication</b>, <b>effective problem solving</b>, and <b>continuous learning</b>. These values help me function not just as a developer but as an effective team-member and human being.
-                        </Typography>
-                        <Typography style={{marginTop: '20px'}}>
-                            If you are interested in scheduling a meeting, please reachout via LinkedIn or by email posted in the footer below!
-                        </Typography>
-                    </div>
+                <CenteredIntro/>
+                <div id='About'>
+                    <AboutSection/>
+                    <Box
+                        sx={{ marginTop: '4rem' }}
+                    >
+                        <SectionTitle title="Skills and Technologies"/>
+                        <ResponsiveTypography variant="body1">
+                            Here are some of the technologies and tools I have the most experience with:
+                        </ResponsiveTypography>
+                        <Grid 
+                            container
+                            justifyContent='center'
+                            spacing={1}
+                            sx={{ marginTop: '2rem' }}>
+                            {SkillList.map((skill) => (
+                                <Skill
+                                    key={skill.label} 
+                                    label={skill.label}
+                                    color={skill.color}
+                                    type={skill.type}
+                                    icon={skill.icon}
+                                />
+                            ))}
+                        </Grid>
+                    </Box>
                 </div>
-                <SectionTitle title='Skills'/>
-                <SkillList/>
             </div>
         </Page>
     );
